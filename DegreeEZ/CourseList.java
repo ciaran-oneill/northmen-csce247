@@ -1,7 +1,6 @@
 package DegreeEZ;
 import java.util.ArrayList;
 
-import javax.xml.crypto.Data;
 
 public class CourseList {
     private static CourseList courseList;
@@ -29,14 +28,3 @@ public class CourseList {
     }
 }
 
-/* 
-
-
-    
-
-    
-
-    
-    
-    
-    */
