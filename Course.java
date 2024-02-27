@@ -1,21 +1,24 @@
 import java.util.ArrayList;
 
-public class Class {
-    private Subject subject;
+public class Course {
+   // private Subject subject;
     private int number;
     private String name;
-    private ArrayList<Class> prerequisites;
-    private String minGrade;
-    private int creditHours;
-    private ArrayList<CompletedCourse> completedCourse;
-    private ArrayList<Class> libArts;
-    private String availability;
-
-    public Class(Subject subject, int number, String name) {    
+   // private ArrayList<HashMap<Course, String>> prerequisites;
+   // private String minGrade;
+   // private int creditHours;
+    
+   
+/* 
+    public Course(Subject subject, int number, String name) {    
         this.number = number;
         this.name = name;
     }
-
+*/
+    Course(String name, int number) {
+        this.number = number;
+        this.name = name;
+    }
     public int getNumber() {
         return number;
     }
@@ -23,7 +26,7 @@ public class Class {
     public String getName() {
         return name;
     }
-
+/* 
     public String getSubject(Subject subject) {
         return subject;
     }
@@ -35,4 +38,5 @@ public class Class {
     public int minGrade(int grade) {
         return grade;
     }
+    */
 }
