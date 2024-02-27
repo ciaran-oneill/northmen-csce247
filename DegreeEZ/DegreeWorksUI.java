@@ -30,6 +30,6 @@ public class DegreeWorksUI {
     }
 
     public static void main(String[] args) {
-       // TODO
+        // TODO
     }
 }
