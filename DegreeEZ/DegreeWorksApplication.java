@@ -1,5 +1,6 @@
 package DegreeEZ;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class DegreeWorksApplication {
     private User user;
@@ -11,14 +12,22 @@ public class DegreeWorksApplication {
     }
 
     public User login(String username, String password) {
-        // TODO
+        
         return null;
     }
 
     public User createAccount(String firstName, String lastName, String username, String password) {
-        // TODO
-        return null;
+        final UUID newUUID = UUID.randomUUID();
+        String fName = firstName;
+        String lName = lastName;
+        String uname = username;
+        String pword = password;
+        
+        User newUser = new User(newUUID, uname, fName, lName, pword);
+        
+        return newUser;
     }
+    
 
     public ArrayList<Course> findCourse() {
         // TODO
