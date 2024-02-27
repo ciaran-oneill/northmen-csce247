@@ -13,11 +13,8 @@ public class Student {
         //TODO
     }
 
-    public String viewDegreeProgress() {
+    public void viewDegreeProgress() {
         //TODO
     }
 
-    public void requestAdvisingAppointment() {
-        //TODO
-    }
 }
