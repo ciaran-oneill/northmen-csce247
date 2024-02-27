@@ -1,3 +1,4 @@
+package DegreeEZ;
 import java.util.ArrayList;
 
 public class UserList {
