@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserList {
     private static UserList userList;
@@ -23,7 +24,7 @@ public class UserList {
     public User getUser(String userName) {
         if(!haveUser(userName)) return null;
 
-        return new User(userName, "amy", "smith", "password");
+        return new User(uuid: "858c93a3-d098-4458-b141-e8736696020a", "jackson", "amy", "smith", "password");
 
     }
 }
