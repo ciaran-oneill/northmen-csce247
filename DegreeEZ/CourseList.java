@@ -8,7 +8,7 @@ public class CourseList {
     private ArrayList<Course> courses;
 
     public CourseList() {
-        courses = DataLoader.getCourseList();
+        courses = DataLoader.getCourses();
     }
 
     public static CourseList getInstance() {

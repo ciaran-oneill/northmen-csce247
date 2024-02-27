@@ -7,7 +7,7 @@ public class UserList {
     //private int UUID;
 
     public UserList() {
-        users = DataLoader.getUserList();
+        users = DataLoader.getUsers();
     }
 
     public static UserList getInstance() {
