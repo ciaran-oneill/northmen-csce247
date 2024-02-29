@@ -3,6 +3,7 @@ package DegreeEZ;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -73,27 +74,19 @@ class DataLoader {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.trim().startsWith("{") && !line.trim().endsWith("{")) {
-                    // Extract the UUID of the major
-                    String uuidStr = line.trim().substring(2, line.trim().length() - 2);
-                    UUID uuid = UUID.fromString(uuidStr);
-
-                    // Move to the major details
-                    String majorName = "", electiveCreditsRequiredStr = "";
+                    UUID uuid = UUID.fromString(line.trim().substring(2, line.trim().length() - 2));
+                    String majorName = "";
                     ArrayList<Course> requiredClasses = new ArrayList<>();
-                    ArrayList<Course> electiveOptions = new ArrayList<>();
-                    int electiveCreditsRequired = 0;
+                    //HashMap<String, Electives> electiveCats = new HashMap<>();
 
                     while (!(line = reader.readLine().trim()).equals("}")) {
-                        if (line.contains("major_name")) majorName = extractValue(line);
-                        else if (line.trim().startsWith("\"requiredClasses\"")) requiredClasses = parseCoursesArray(reader);
-                        else if (line.contains("electiveCreditsRequired")) electiveCreditsRequiredStr = extractValue(line);
-                        else if (line.trim().startsWith("\"electiveOptions\"")) electiveOptions = parseCoursesArray(reader);
+                        if (line.contains("major_name")) {
+                            majorName = extractValue(line);
+                        } else if (line.trim().startsWith("\"requiredClasses\"")) {
+                            requiredClasses = parseCoursesArray(reader);
+                        }
                     }
-
-                    // Parsing the electiveCreditsRequired
-                    electiveCreditsRequired = Integer.parseInt(electiveCreditsRequiredStr);
-
-                    majors.add(new Major(uuid, majorName, requiredClasses, electiveCreditsRequired, electiveOptions));
+                    majors.add(new Major(uuid, majorName, requiredClasses));
                 }
             }
         } catch (Exception e) {
@@ -101,6 +94,9 @@ class DataLoader {
         }
         return majors;
     }
+
+   
+
 
     public static ArrayList<Course> loadCourses(String filePath) {
         ArrayList<Course> courses = new ArrayList<>();

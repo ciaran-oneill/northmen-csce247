@@ -3,6 +3,7 @@ package DegreeEZ;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class DataWriter {
                     "    }%s",
                     student.getUuid().toString(), student.getFirstName(), student.getLastName(),
                     student.getUserName(), student.getPassword(), student.getMajorUuid().toString(),
-                    formatStringList(student.getEnrolledClasses()), formatStringList(student.getOutstandingRequirements()),
+                    formatCoursesList(student.getEnrolledClasses()), formatCoursesList(student.getOutstandingRequirements()),
                     student.getAdvisorUuid().toString(), (i < students.size() - 1) ? "," : "");
                 writer.write(studentJson);
                 writer.newLine();
@@ -54,7 +55,7 @@ public class DataWriter {
                     "            \"advisor_students\": %s\n" +
                     "        }\n" +
                     "    }%s",
-                    advisor.getUuid().toString(), advisor.getFirstName(), advisor.getLastName(),
+                    advisor.getUUID().toString(), advisor.getFirstName(), advisor.getLastName(),
                     advisor.getUserName(), advisor.getPassword(), formatUuidList(advisor.getStudentUuids()),
                     (i < advisors.size() - 1) ? "," : "");
                 writer.write(advisorJson);
@@ -66,21 +67,38 @@ public class DataWriter {
         }
     }
 
-    private static String formatStringList(List<String> items) {
-        if (items == null || items.isEmpty()) return "[]";
-        String result = items.stream()
-                             .map(item -> "\"" + item + "\"")
-                             .reduce((acc, item) -> acc + ", " + item)
-                             .orElse("");
-        return "[" + result + "]";
+    private static String formatCoursesList(ArrayList<Course> courses) {
+        if (courses == null || courses.isEmpty()) {
+            return "[]";
+        }
+        
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < courses.size(); i++) {
+            Course course = courses.get(i);
+            sb.append("\"").append(course.getName()).append("\"");
+            if (i < courses.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        
+        return sb.toString();
     }
+    
 
     private static String formatUuidList(List<UUID> uuids) {
         if (uuids == null || uuids.isEmpty()) return "[]";
-        String result = uuids.stream()
-                             .map(uuid -> "\"" + uuid.toString() + "\"")
-                             .reduce((acc, uuid) -> acc + ", " + uuid)
-                             .orElse("");
-        return "[" + result + "]";
+    
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < uuids.size(); i++) {
+            UUID uuid = uuids.get(i);
+            sb.append("\"").append(uuid.toString()).append("\"");
+            if (i < uuids.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+    
+        return sb.toString();
     }
-}
+}    

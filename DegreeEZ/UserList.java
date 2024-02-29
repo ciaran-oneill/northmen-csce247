@@ -21,15 +21,9 @@ public class UserList {
         return true;
     }
     
-    public User getUser(String userName) {
-        if(!haveUser(userName)) {
-            return null;
-        } else {
-            return g
-        }
+  
 
 
-    }
 
     public boolean addUser(User user) {
         // Check if a user with same username already exists
@@ -45,7 +39,7 @@ public class UserList {
         return true;
     }
 
-    public User getUserByUserName(String username) {
+    public User getUser(String username) {
         for (User user : users) {
             if (user.getUserName().equals(username)) {
                 return user;
