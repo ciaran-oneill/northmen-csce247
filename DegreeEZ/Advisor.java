@@ -1,5 +1,6 @@
 package DegreeEZ;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Advisor extends User {
@@ -7,13 +8,11 @@ public class Advisor extends User {
 
     public Advisor(UUID uuid, String userName, String firstName, String lastName, String password, ArrayList<Student> students) {
         super(uuid, userName, firstName, lastName, password);
-        
+        this.students = students;
     }
     
     public void viewStudents() {
-        for (var i = 0; i<students.size(); i++) {
-            System.out.println(i +". " + students[i].getFirstName + " " + students);
-        }
+        // list all students
     }
 
     public void performDegreeAudit(Student student) {
@@ -31,5 +30,13 @@ public class Advisor extends User {
 
     public void addRequiredCourse(Student student, Course course) {
         // Adds a 'required' course to the specified student's degree progress
+    }
+
+    public List<UUID> getStudentUuids() {
+        List<UUID> studentUuids = new ArrayList<>();
+        for (Student student : students) {
+            studentUuids.add(student.getUuid()); // Collect each student's UUID
+        }
+        return studentUuids;
     }
 }

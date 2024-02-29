@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.swing.plaf.ColorUIResource;
 
 public class Student extends User {
     private UUID majorUuid; 
@@ -23,8 +22,11 @@ public class Student extends User {
         this.advisorUuid = advisorUuid;
     }
 
+    public UUID getUuid() {
+       return this.uuid;
+    }
  
-    public UUID getMajorUuid(UUID studentMajor) {
+    public UUID getMajorUuid() {
         return this.majorUuid;
     }
 

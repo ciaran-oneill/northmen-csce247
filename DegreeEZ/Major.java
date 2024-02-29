@@ -16,14 +16,18 @@ public class Major {
     }
 
     public ArrayList<Course> getRequiredCourses() {
-        // TODO
+        return this.requiredCourses;
     }
 
-    public ArrayList<Course> getElectiveCatList() {
-        // TODO
+    public HashMap<String,Electives> getElectiveCatList() {
+        return this.electiveCats;
     }
 
     public String getMajorName() {
         return majorName;
+    }
+
+    public UUID getMajorUuid() {
+        return this.majorID;
     }
 }

@@ -8,8 +8,8 @@ import java.util.UUID;
 
 class DataLoader {
 
-    public static List<Student> loadStudents(String filePath) {
-        List<Student> students = new ArrayList<>();
+    public static ArrayList<Student> loadStudents(String filePath) {
+        ArrayList<Student> students = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -50,7 +50,7 @@ class DataLoader {
                     String uuidStr = line.trim().substring(2, line.trim().length() - 2);
                     UUID uuid = UUID.fromString(uuidStr);
                     String firstName = "", lastName = "", username = "", password = "";
-                    List<UUID> studentUuids = new ArrayList<>();
+                    ArrayList<UUID> studentUuids = new ArrayList<>();
                     while (!(line = reader.readLine().trim()).equals("}")) {
                         if (line.contains("advisor_firstName")) firstName = extractValue(line);
                         else if (line.contains("advisor_lastName")) lastName = extractValue(line);
@@ -67,8 +67,8 @@ class DataLoader {
         return advisors;
     }
 
-    public static List<Major> loadMajors(String filePath) {
-        List<Major> majors = new ArrayList<>();
+    public static ArrayList<Major> loadMajors(String filePath) {
+        ArrayList<Major> majors = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -79,8 +79,8 @@ class DataLoader {
 
                     // Move to the major details
                     String majorName = "", electiveCreditsRequiredStr = "";
-                    List<Course> requiredClasses = new ArrayList<>();
-                    List<Course> electiveOptions = new ArrayList<>();
+                    ArrayList<Course> requiredClasses = new ArrayList<>();
+                    ArrayList<Course> electiveOptions = new ArrayList<>();
                     int electiveCreditsRequired = 0;
 
                     while (!(line = reader.readLine().trim()).equals("}")) {
@@ -102,16 +102,15 @@ class DataLoader {
         return majors;
     }
 
-    public static List<Course> loadCourses(String filePath) {
-        List<Course> courses = new ArrayList<>();
+    public static ArrayList<Course> loadCourses(String filePath) {
+        ArrayList<Course> courses = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.trim().startsWith("{") && line.contains(":")) {
-                    // Skipping the UUID as it's not directly used for Course instantiation
                     String courseName = "", courseSubject = "";
                     int courseNumber = 0, creditHours = 0;
-                    List<String> coursePrereq = new ArrayList<>(), availability = new ArrayList<>();
+                    ArrayList<String> coursePrereq = new ArrayList<>(), availability = new ArrayList<>();
 
                     while (!(line = reader.readLine().trim()).equals("}")) {
                         if (line.contains("course_name")) courseName = extractValue(line);
@@ -131,8 +130,8 @@ class DataLoader {
         return courses;
     }
 
-    private static List<UUID> parseStudentUuidsArray(BufferedReader reader) throws Exception {
-        List<UUID> studentUuids = new ArrayList<>();
+    private static ArrayList<UUID> parseStudentUuidsArray(BufferedReader reader) throws Exception {
+        ArrayList<UUID> studentUuids = new ArrayList<>();
         String line = reader.readLine().trim(); // Move to the array content
         while (!(line = reader.readLine().trim()).endsWith("]")) { // Until the end of array
             UUID uuid = UUID.fromString(line.replaceAll("[\",]", "").trim());
@@ -141,8 +140,8 @@ class DataLoader {
         return studentUuids;
     }
 
-    private static List<Course> parseCoursesArray(BufferedReader reader) throws Exception {
-        List<Course> courses = new ArrayList<>();
+    private static ArrayList<Course> parseCoursesArray(BufferedReader reader) throws Exception {
+        ArrayList<Course> courses = new ArrayList<>();
         String line = reader.readLine().trim(); 
         while (!(line = reader.readLine().trim()).endsWith("]")) { 
             String courseName = line.replaceAll("[\",]", "").trim();
@@ -151,8 +150,8 @@ class DataLoader {
         return courses;
     }
 
-    private static List<String> parseStringArray(BufferedReader reader) throws Exception {
-        List<String> items = new ArrayList<>();
+    private static ArrayList<String> parseStringArray(BufferedReader reader) throws Exception {
+        ArrayList<String> items = new ArrayList<>();
         String line = reader.readLine().trim(); // Move to the array content
         if (!line.startsWith("[")) {
             throw new IllegalArgumentException("Expected array start '[' but found: " + line);
