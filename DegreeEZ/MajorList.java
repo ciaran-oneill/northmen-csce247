@@ -17,10 +17,14 @@ public class MajorList {
         return majorList;
     }
 
-    public boolean haveMajor(Major name ) {
-
+    public boolean haveMajor(String name ) {
+        return true;
     }
-    
+
+    public boolean addMajor(Major major) {
+        
+    }
+
 
 
         
