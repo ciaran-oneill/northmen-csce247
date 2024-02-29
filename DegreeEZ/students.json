@@ -4,6 +4,7 @@
             "student_firstName": "John",
             "student_lastName": "Smith",
             "student_username": "john-smith-2003",
+            "student_password": "abc123",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
             "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
             "outstandingReq": ["CSCE322"],

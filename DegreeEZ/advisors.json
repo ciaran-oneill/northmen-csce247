@@ -4,6 +4,7 @@
             "advisor_firstName": "Kelly",
             "advisor_lastName": "Johnson",
             "advisor_username": "kelly-johnson-1974",
+            "advisor_password": "password",
             "advisor_students": ["97372bf4-24d2-4f70-968c-12898596277e"]
         }
     }
