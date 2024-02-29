@@ -1,22 +1,47 @@
 package DegreeEZ;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
-public class CompletedCourse {
-    public Course course;
-    public String finalGrade;
-    public Semester semesterTaken;
+public class CompletedCourse extends Course {
+    private int finalGrade;
+    private Semester semesterTaken;
+    private boolean pass;
 
-    public CompletedCourse (String className, int finalGrade, boolean pass) {
-<<<<<<< HEAD
+    public CompletedCourse(UUID id, String name, Subject subject, int number, 
+                           ArrayList<HashMap<Course, String>> prerequisites, 
+                           int minGrade, int creditHours, int finalGrade, 
+                           Semester semesterTaken, boolean pass) {
+        super(id, name, subject, number, prerequisites, minGrade, new ArrayList<>(), creditHours);
         
-
-=======
-        //TODO
-        this.className = className; 
         this.finalGrade = finalGrade;
+        this.semesterTaken = semesterTaken;
         this.pass = pass;
->>>>>>> 71d0db7200ad1d516c66a288626896c41b75665c
+    }
+
+    // Getters and setters for the new fields
+    public int getFinalGrade() {
+        return finalGrade;
+    }
+
+    public void setFinalGrade(int finalGrade) {
+        this.finalGrade = finalGrade;
+    }
+
+    public Semester getSemesterTaken() {
+        return semesterTaken;
+    }
+
+    public void setSemesterTaken(Semester semesterTaken) {
+        this.semesterTaken = semesterTaken;
+    }
+
+    public boolean isPass() {
+        return pass;
+    }
+
+    public void setPass(boolean pass) {
+        this.pass = pass;
     }
 }

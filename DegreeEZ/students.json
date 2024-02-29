@@ -6,6 +6,7 @@
             "student_username": "john-smith-2003",
             "student_password": "abc123",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
+            "completedCourses" : ["CSCE141"],
             "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
             "outstandingReq": ["CSCE322"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
