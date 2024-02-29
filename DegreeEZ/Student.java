@@ -1,7 +1,6 @@
 package DegreeEZ;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -22,11 +21,7 @@ public class Student extends User {
         this.advisorUuid = advisorUuid;
     }
 
-    public UUID getUuid() {
-       return this.uuid;
-    }
- 
-    public UUID getMajorUuid() {
+    public UUID getMajorUuid(UUID studentMajor) {
         return this.majorUuid;
     }
 

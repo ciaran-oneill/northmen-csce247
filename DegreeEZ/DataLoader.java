@@ -103,11 +103,16 @@ class DataLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{") && line.contains(":")) {
+                if (line.trim().startsWith("{")) {
+                    UUID id = null;
                     String courseName = "", courseSubject = "";
                     int courseNumber = 0, creditHours = 0;
                     ArrayList<String> coursePrereq = new ArrayList<>(), availability = new ArrayList<>();
-
+                    // Extract UUID from the line
+                    if (line.contains(":")) {
+                        String uuidStr = line.trim().substring(2, line.trim().indexOf(":") - 1);
+                        id = UUID.fromString(uuidStr);
+                    }
                     while (!(line = reader.readLine().trim()).equals("}")) {
                         if (line.contains("course_name")) courseName = extractValue(line);
                         else if (line.contains("course_subject")) courseSubject = extractValue(line);
@@ -116,8 +121,15 @@ class DataLoader {
                         else if (line.contains("creditHours")) creditHours = Integer.parseInt(extractValue(line));
                         else if (line.trim().startsWith("\"availability\"")) availability = parseStringArray(reader);
                     }
-
-                    courses.add(new Course(courseName, courseSubject, courseNumber, coursePrereq, creditHours, availability));
+                    // Assuming a method to convert courseSubject string to Subject enum
+                    Subject subject = Subject.valueOf(courseSubject.toUpperCase());
+                    // Assuming a method to convert availability strings to Semester enum list
+                    ArrayList<Semester> semesters = new ArrayList<>();
+                    for (String sem : availability) {
+                        semesters.add(Semester.valueOf(sem.toUpperCase()));
+                    }
+                    // Assuming prerequisites are just a list of course names and minGrade is a fixed value or not required here
+                    courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semesters));
                 }
             }
         } catch (Exception e) {

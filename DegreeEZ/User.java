@@ -3,7 +3,7 @@ package DegreeEZ;
 import java.util.UUID;
 
 public  abstract class User {
-        private final UUID uuid;
+        protected final UUID uuid;
         private String firstName;
         private String lastName;
         private String password;

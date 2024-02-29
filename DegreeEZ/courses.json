@@ -6,6 +6,7 @@
             "course_number": "141",
             "course_prereq": [],
             "creditHours": 4,
+            "minGrade": 0,
             "availability": ["Summer","Fall","Spring"]
         }
     }
