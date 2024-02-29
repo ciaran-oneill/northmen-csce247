@@ -14,32 +14,60 @@ class DataLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{") && line.contains(":")) {
-                    UUID uuid = UUID.fromString(line.substring(line.indexOf("\"") + 1, line.lastIndexOf("\"")));
+                if (line.trim().startsWith("{")) {
+                    UUID uuid = UUID.fromString(line.substring(line.indexOf("\"") + 1, line.indexOf("\"", line.indexOf("\"") + 1)));
                     String firstName = "", lastName = "", username = "", password = "";
                     UUID major = null;
-                    List<Course> enrolledClasses = null;
-                    List<String> outstandingReq = new ArrayList<>();
+                    ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
+                    ArrayList<Course> enrolledClasses = new ArrayList<>();
+                    ArrayList<String> outstandingReq = new ArrayList<>();
                     UUID advisor = null;
 
-                    while (!(line = reader.readLine()).trim().equals("}")) {
+                    while (!(line = reader.readLine().trim()).equals("}")) {
                         if (line.contains("student_firstName")) firstName = extractValue(line);
                         else if (line.contains("student_lastName")) lastName = extractValue(line);
                         else if (line.contains("student_username")) username = extractValue(line);
                         else if (line.contains("student_password")) password = extractValue(line);
                         else if (line.contains("student_major")) major = UUID.fromString(extractValue(line));
+                        else if (line.trim().startsWith("\"completedCourses\"")) completedCourses = parseCompletedCoursesArray(reader);
                         else if (line.trim().startsWith("\"enrolledClasses\"")) enrolledClasses = parseCoursesArray(reader);
                         else if (line.trim().startsWith("\"outstandingReq\"")) outstandingReq = parseStringArray(reader);
                         else if (line.contains("advisor")) advisor = UUID.fromString(extractValue(line).replaceAll("[{},]", "").trim());
                     }
 
-                    students.add(new Student(uuid, firstName, lastName, username, password, major, enrolledClasses, outstandingReq, advisor));
+                    students.add(new Student(uuid, firstName, lastName, username, password, major, completedCourses, enrolledClasses, outstandingReq, advisor));
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return students;
+    }
+
+    private static ArrayList<CompletedCourse> parseCompletedCoursesArray(BufferedReader reader) throws Exception {
+        ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
+        String line = reader.readLine().trim(); // Assuming the next line is the start of the array
+        if (!line.startsWith("[")) {
+            throw new IllegalArgumentException("Expected array start '[' but found: " + line);
+        }
+        while (!(line = reader.readLine().trim()).equals("]")) { // Until the end of the array
+            if (!line.equals("[")) { // Skip the starting bracket of the array
+                // Simplified parsing logic, assuming a structure like: { "courseId": "uuid", "grade": "A" }
+                UUID courseId = null;
+                String grade = "";
+                // Extract courseId and grade from the current object
+                if (line.contains("courseId")) {
+                    courseId = UUID.fromString(extractValue(line));
+                    line = reader.readLine().trim(); // Move to grade line
+                }
+                if (line.contains("grade")) {
+                    grade = extractValue(line);
+                }
+                completedCourses.add(new CompletedCourse(courseId, grade));
+                reader.readLine(); // Assuming this reads the closing '}' of the completed course object
+            }
+        }
+        return completedCourses;
     }
 
     public static List<Advisor> loadAdvisors(String filePath) {
@@ -95,8 +123,8 @@ class DataLoader {
         return majors;
     }
 
-    public static List<User> getUsers(String studentsFilePath, String advisorsFilePath) {
-        List<User> users = new ArrayList<>();
+    public static ArrayList<User> getUsers(String studentsFilePath, String advisorsFilePath) {
+        ArrayList<User> users = new ArrayList<>();
         users.addAll(loadStudents(studentsFilePath));
         users.addAll(loadAdvisors(advisorsFilePath)); 
         return users;

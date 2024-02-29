@@ -18,7 +18,7 @@ public class CourseList {
 
         return courseList;
     }
-    public boolean haveCourse(String name, int number) {
+    public boolean haveCourse(Subject name, int number) {
         if()
     }
     public Course getCourseByName(String name) {
@@ -38,6 +38,7 @@ public class CourseList {
         }
         return null; // or throw an exception if preferred
     }
+
         
 
 }
