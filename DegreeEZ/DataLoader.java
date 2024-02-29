@@ -134,7 +134,7 @@ class DataLoader {
                         semesters.add(Semester.valueOf(sem.toUpperCase()));
                     }
                     // Assuming prerequisites are just a list of course names and minGrade is a fixed value or not required here
-                    courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semesters));
+                    courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semester));
                 }
             }
         } catch (Exception e) {
