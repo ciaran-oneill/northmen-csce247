@@ -55,11 +55,11 @@ public class Course {
         this.name = name;
     }
 
-    public String getMinGrade() {
+    public int getMinGrade() {
         return minGrade;
     }
 
-    public void setMinGrade(String minGrade) {
+    public void setMinGrade(int minGrade) {
         this.minGrade = minGrade;
     }
 
@@ -79,7 +79,6 @@ public class Course {
         this.availability = availability;
     }
 
-    // Additional methods
     public void addPrerequisite(Course prerequisite, String grade) {
         HashMap<Course, String> prerequisiteMap = new HashMap<>();
         prerequisiteMap.put(prerequisite, grade);
