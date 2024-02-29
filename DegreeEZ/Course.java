@@ -10,7 +10,7 @@ public class Course {
    private Subject subject;
 =======
     private UUID id;
-    private Subject subject;
+    //private Subject subject;
 >>>>>>> 1d1cd90139808ae3e8a136d25655fc311ea06b8d
     private int number;
     private String name;
