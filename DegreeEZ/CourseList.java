@@ -21,21 +21,11 @@ public class CourseList {
     public boolean haveCourse(Subject name, int number) {
         if()
     }
-<<<<<<< HEAD
     public Course getCourse(String name, int number) {
         if(!haveCourse(name, number)) return null;
 
         return new Course(name, number);
 
-=======
-    public Course getCourseByName(String name) {
-        for (Course course : courses) {
-            if (course.getName().equals(name)) {
-                return course;
-            }
-        }
-        return null; // or throw an exception if preferred
->>>>>>> f938be6bdacf68a57be620067b4b0a6d2b01c2e4
     }
 
     public Course getCourseByUUID(UUID id) {
