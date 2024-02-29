@@ -47,12 +47,12 @@ public class DegreeWorksUI {
         if (user != null) {
             System.out.println("Login successful!");
         } else {
-            System.out.println("Login failed. Please check your credentials.")
+            System.out.println("Login failed. Please check your credentials.");
         }
     }
 
     private void createAccount() {
-        System.out.println("Are you an advisor or student? (A=Advisor | S=Student)");
+        System.out.println("Are you an advisor or student? (A = Advisor | S = Student)");
         boolean isAdvisor = false;
         if (scanner.nextLine().equals("S")) {
             isAdvisor = false;
@@ -69,8 +69,10 @@ public class DegreeWorksUI {
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
-        System.out.print("Enter your major:");
+        System.out.print("Enter your major: ");
         String major = scanner.nextLine();
+        }
+        
         // TODO: Ensure that the major is in the major list, and convert to UUID
        
 

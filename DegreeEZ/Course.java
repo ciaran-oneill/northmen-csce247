@@ -26,7 +26,9 @@ public abstract class Course {
         this.availability = new ArrayList<>();
     }
 
-    public Course(Subject subject)
+    public Course(Subject subject) {
+        
+    }
 
     // Getters and setters
     public UUID getId() {
