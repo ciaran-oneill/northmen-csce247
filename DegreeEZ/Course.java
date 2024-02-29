@@ -26,6 +26,8 @@ public class Course {
         this.availability = new ArrayList<>();
     }
 
+    public Course(Subject subject)
+
     // Getters and setters
     public UUID getId() {
         return id;
@@ -79,7 +81,6 @@ public class Course {
         this.availability = availability;
     }
 
-    // Additional methods
     public void addPrerequisite(Course prerequisite, String grade) {
         HashMap<Course, String> prerequisiteMap = new HashMap<>();
         prerequisiteMap.put(prerequisite, grade);

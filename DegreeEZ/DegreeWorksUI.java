@@ -47,7 +47,7 @@ public class DegreeWorksUI {
         if (user != null) {
             System.out.println("Login successful!");
         } else {
-            System.out.println("Login failed. Please check your credentials.")
+            System.out.println("Login failed. Please check your credentials.");
         }
     }
 

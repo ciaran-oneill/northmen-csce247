@@ -95,7 +95,12 @@ class DataLoader {
         return majors;
     }
 
-   
+    public static List<User> getUsers(String studentsFilePath, String advisorsFilePath) {
+        List<User> users = new ArrayList<>();
+        users.addAll(loadStudents(studentsFilePath));
+        users.addAll(loadAdvisors(advisorsFilePath)); 
+        return users;
+    }
 
 
     public static ArrayList<Course> loadCourses(String filePath) {
