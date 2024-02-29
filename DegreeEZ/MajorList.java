@@ -2,11 +2,15 @@ package DegreeEZ;
 import java.util.ArrayList;
 
 public class MajorList {
-    private static User instance;
+   // private static User instance;
     private MajorList majorList;
     private ArrayList<Major> majors;
 
     private MajorList() {
+        majors = DataLoader.loadMajors("majors.json");
+    }
+
+
 <<<<<<< HEAD
         
 =======
