@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class Course {
+public abstract class Course {
     private UUID id;
     private Subject subject;
     private int number;
@@ -16,7 +16,7 @@ public class Course {
     private int creditHours;
 
     // Constructor
-    public Course(UUID id, String name, Subject subject, int number, ArrayList<HashMap<Course,String>> prerequisites, int minGrade, ArrayList<Semester> availability) {
+    public Course(UUID id, String name, Subject subject, int number, ArrayList<HashMap<Course,String>> prerequisites, int minGrade, ArrayList<Semester> availability, int creditHours) {
         this.id = UUID.randomUUID(); // Generate a unique ID for each course
         this.subject = subject;
         this.number = number;
@@ -26,7 +26,9 @@ public class Course {
         this.availability = new ArrayList<>();
     }
 
-    public Course(Subject subject)
+    public Course(Subject subject) {
+        
+    }
 
     // Getters and setters
     public UUID getId() {

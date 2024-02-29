@@ -18,9 +18,10 @@ public class CourseList {
 
         return courseList;
     }
-    public boolean haveCourse(String name, int number) {
+    public boolean haveCourse(Subject name, int number) {
         if()
     }
+<<<<<<< HEAD
     public Course getCourseByName(String name) {
         for (Course course : courses) {
             if (course.getName().equals(name)) {
@@ -28,6 +29,13 @@ public class CourseList {
             }
         }
         return null; // or throw an exception if preferred
+=======
+    public Course getCourse(String name, int number) {
+        if(!haveCourse(name, number)) return null;
+
+        return new Course(name, number);
+
+>>>>>>> 573f75325be219570882a41078471a4618bb1258
     }
 
     public Course getCourseByUUID(UUID id) {
@@ -38,6 +46,7 @@ public class CourseList {
         }
         return null; // or throw an exception if preferred
     }
+
         
 
 }
