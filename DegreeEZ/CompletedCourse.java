@@ -9,14 +9,21 @@ public class CompletedCourse {
     public Semester semesterTaken;
 
     public CompletedCourse (String className, int finalGrade, boolean pass) {
-<<<<<<< HEAD
-        
-
-=======
         //TODO
         this.className = className; 
         this.finalGrade = finalGrade;
         this.pass = pass;
->>>>>>> 71d0db7200ad1d516c66a288626896c41b75665c
+
+        public void addclassName(classname newClassName) {
+            courses.add(newClassName);
+        }
+
+        public void addfinalGrade(finalGrade newfinalGrade) {
+            courses.add(newfinalGrade);
+        }
+
+        public boolean addpass(pass newpass) {
+            courses.add(newpass);
+        }
     }
 }

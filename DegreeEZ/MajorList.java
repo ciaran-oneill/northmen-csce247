@@ -7,13 +7,9 @@ public class MajorList {
     private ArrayList<Major> majors;
 
     private MajorList() {
-<<<<<<< HEAD
-        
-=======
         if (instance == null) instance = new MajorList(DataLoader.getMajorList("majorList.java"));
         return instance;
         // WIP
->>>>>>> 71d0db7200ad1d516c66a288626896c41b75665c
     }
 
     public static MajorList getInstance() {
