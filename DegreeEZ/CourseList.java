@@ -20,7 +20,7 @@ public class CourseList {
     public boolean haveCourse(String name, int number) {
         return true;
     }
-    public Course getCouse(String name, int number) {
+    public Course getCourse(String name, int number) {
         if(!haveCourse(name, number)) return null;
 
         return new Course(name, number);
