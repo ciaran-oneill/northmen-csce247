@@ -5,11 +5,16 @@ public class Electives  {
     private int creditsRequired;
     private ArrayList<Course> courseOptions;
 
+    public Electives(int creditsRequired, ArrayList<Course> courseOptions) {
+        this.creditsRequired = creditsRequired;
+        this.courseOptions = courseOptions;
+    }
+
     public ArrayList<Course> getLibArts() {
-        // TODO
+        return this.getLibArts();
     }
 
     public ArrayList<Course> getElectives() {
-        // TODO
+        return this.getElectives();
     }    
 }
