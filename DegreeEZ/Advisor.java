@@ -7,11 +7,13 @@ public class Advisor extends User {
 
     public Advisor(UUID uuid, String userName, String firstName, String lastName, String password, ArrayList<Student> students) {
         super(uuid, userName, firstName, lastName, password);
-        // Initialization of the students list 
+        
     }
     
     public void viewStudents() {
-        // Print list of advisors' students
+        for (var i = 0; i<students.size(); i++) {
+            System.out.println(i +". " + students[i].getFirstName + " " + students);
+        }
     }
 
     public void performDegreeAudit(Student student) {
