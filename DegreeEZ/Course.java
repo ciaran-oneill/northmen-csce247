@@ -3,7 +3,7 @@ package DegreeEZ;
 import java.util.ArrayList;
 
 public class Course {
-   // private Subject subject;
+   private Subject subject;
     private int number;
     private String name;
    // private ArrayList<HashMap<Course, String>> prerequisites;
