@@ -6,7 +6,7 @@ public class CompletedCourse {
     public Semester semesterTaken;
 
     public CompletedCourse (String className, int finalGrade, boolean pass) {
-        //TODO
+        
 
     }
 }

@@ -1,5 +1,6 @@
 package DegreeEZ;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 public class CourseList {
@@ -18,13 +19,26 @@ public class CourseList {
         return courseList;
     }
     public boolean haveCourse(String name, int number) {
-        return true;
+        if()
     }
-    public Course getCouse(String name, int number) {
-        if(!haveCourse(name, number)) return null;
-
-        return new Course(name, number);
-
+    public Course getCourseByName(String name) {
+        for (Course course : courses) {
+            if (course.getName().equals(name)) {
+                return course;
+            }
+        }
+        return null; // or throw an exception if preferred
     }
+
+    public Course getCourseByUUID(UUID id) {
+        for (Course course : courses) {
+            if (course.getId().equals(id)) {
+                return course;
+            }
+        }
+        return null; // or throw an exception if preferred
+    }
+        
+
 }
 
