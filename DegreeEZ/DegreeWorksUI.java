@@ -54,15 +54,16 @@ public class DegreeWorksUI {
     private void createAccount() {
         System.out.println("Are you an advisor or student? (A = Advisor | S = Student)");
         boolean isAdvisor = false;
-        if (scanner.nextLine().equals("S")) {
+        String choice = scanner.nextLine(); // Read user input once
+        if (choice.equals("S")) {
             isAdvisor = false;
-        } else if (scanner.nextLine().equals("A")) {
+        } else if (choice.equals("A")) {
             isAdvisor = true;
         } else {
             System.out.println("Incorrect choice.");
+            return; // Exit method if choice is incorrect
         }
-
-
+    
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine();
         System.out.print("Enter last name: ");
@@ -71,11 +72,15 @@ public class DegreeWorksUI {
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
-        System.out.print("Enter your major: ");
-        String major = scanner.nextLine();
-        // TODO: Ensure that the major is in the major list, and convert to UUID
-       
-
+        
+        // Only ask for major if it's a student
+        String major = "";
+        if (!isAdvisor) {
+            System.out.print("Enter your major: ");
+            major = scanner.nextLine();
+            // TODO: Ensure that the major is in the major list, and convert to UUID
+        }
+    
         User user = app.createAccount(isAdvisor, firstName, lastName, username, password, major);
         if (user != null) {
             System.out.println("Account created successfully. Please login.");
@@ -83,6 +88,7 @@ public class DegreeWorksUI {
             System.out.println("Failed to create account.");
         }
     }
+    
 
     public static void main(String[] args) {
         DegreeWorksApplication app = new DegreeWorksApplication();
