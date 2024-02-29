@@ -20,10 +20,6 @@ public class UserList {
     public boolean haveUser(String username) {
         return true;
     }
-    
-  
-
-
 
     public boolean addUser(User user) {
         // Check if a user with same username already exists
