@@ -61,6 +61,8 @@ public class DegreeWorksUI {
         } else {
             System.out.println("Incorrect choice.");
         }
+
+
         System.out.print("Enter first name: ");
         String firstName = scanner.nextLine();
         System.out.print("Enter last name: ");
@@ -71,8 +73,6 @@ public class DegreeWorksUI {
         String password = scanner.nextLine();
         System.out.print("Enter your major: ");
         String major = scanner.nextLine();
-        }
-        
         // TODO: Ensure that the major is in the major list, and convert to UUID
        
 
