@@ -6,8 +6,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class Course {
+<<<<<<< HEAD
+   private Subject subject;
+=======
     private UUID id;
     private Subject subject;
+>>>>>>> 1d1cd90139808ae3e8a136d25655fc311ea06b8d
     private int number;
     private String name;
     private ArrayList<HashMap<Course, String>> prerequisites; // each Course can have multiple prerequisites with specific min grades

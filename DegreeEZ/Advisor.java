@@ -35,7 +35,7 @@ public class Advisor extends User {
     public List<UUID> getStudentUuids() {
         List<UUID> studentUuids = new ArrayList<>();
         for (Student student : students) {
-            studentUuids.add(student.getUuid()); // Collect each student's UUID
+            studentUuids.add(student.getUUID()); // Collect each student's UUID
         }
         return studentUuids;
     }
