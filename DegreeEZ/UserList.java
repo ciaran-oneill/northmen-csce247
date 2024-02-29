@@ -4,8 +4,7 @@ import java.util.UUID;
 
 public class UserList {
     private static UserList userList;
-    private ArrayList<User> users;
-    //private int UUID;
+    private ArrayList<User> users = new ArrayList<>();
 
     public UserList() {
         users = DataLoader.getUsers();
@@ -22,10 +21,41 @@ public class UserList {
         return true;
     }
     
-    public User getUser(String userName) {
-        if(!haveUser(userName)) return null;
+  
 
-        return new User(uuid: "858c93a3-d098-4458-b141-e8736696020a", "jackson", "amy", "smith", "password");
 
+
+    public boolean addUser(User user) {
+        // Check if a user with same username already exists
+        for (User existingUser : users) {
+            if (existingUser.getUserName().equals(user.getUserName())) {
+                // User with same username found, do not add new user
+                System.out.println("User already exists.");
+                return false;
+            }
+        }
+        // No existing user found, add user
+        users.add(user);
+        return true;
     }
+
+    public User getUser(String username) {
+        for (User user : users) {
+            if (user.getUserName().equals(username)) {
+                return user;
+            }
+        }
+        System.out.println("Username not found");
+        return null;
+    }
+
+    public boolean usernameExists(String username) {
+        for (User user : users) {
+            if (user.getUserName().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

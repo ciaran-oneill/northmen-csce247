@@ -7,7 +7,7 @@ public class CourseList {
     private ArrayList<Course> courses;
 
     public CourseList() {
-        courses = DataLoader.getCourses();
+        courses = DataLoader.loadCourses("courses.json");
     }
 
     public static CourseList getInstance() {

@@ -9,21 +9,25 @@ public class Major {
     public ArrayList<Course> requiredCourses;
     public HashMap<String, Electives> electiveCats;
 
-    public Major(String majorName, ArrayList<Course> requiredCourses, HashMap<String, Electives> electiveCats){
+    public Major(UUID majorId, String majorName, ArrayList<Course> requiredCourses) { // need to implement elective cats still
         this.majorName = majorName;
         this.requiredCourses = requiredCourses;
         this.electiveCats = electiveCats;
     }
 
     public ArrayList<Course> getRequiredCourses() {
-        // TODO
+        return this.requiredCourses;
     }
 
-    public ArrayList<Course> getElectiveCatList() {
-        // TODO
+    public HashMap<String,Electives> getElectiveCatList() {
+        return this.electiveCats;
     }
 
     public String getMajorName() {
         return majorName;
+    }
+
+    public UUID getMajorUuid() {
+        return this.majorID;
     }
 }

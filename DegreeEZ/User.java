@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 package DegreeEZ;
-=======
-import java.util.UUID;
->>>>>>> b7b0392ee9cf58a19dbf89fd294340188ed9e835
 
-public class User {
-        private final UUID uuid;
+import java.util.UUID;
+
+public  abstract class User {
+        protected final UUID uuid;
         private String firstName;
         private String lastName;
         private String password;

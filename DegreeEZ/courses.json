@@ -1,0 +1,13 @@
+[
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca621": {
+            "course_name": "Algebra I",
+            "course_subject": "MATH",
+            "course_number": "141",
+            "course_prereq": [],
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }
+]
