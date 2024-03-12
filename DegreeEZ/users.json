@@ -34,6 +34,24 @@
       "username": "hKrol",
       "password": "password3" 
     }
+  },
+  {
+    "e982cfe5-24cb-4d43-8b2e-a175b158763b": {
+      "isAdvisor": "false",
+      "firstName": "Frank",
+      "lastName": "Herbert",
+      "username": "Fherbert",
+      "password": "password4" 
+    }
+  },
+    {
+    "50262905-78f1-411b-b41a-2cc9ea533792": {
+      "isAdvisor": "false",
+      "firstName": "Roger",
+      "lastName": "Wilfong",
+      "username": "Rwilfong",
+      "password": "password5" 
+    }
   }
 
 ]

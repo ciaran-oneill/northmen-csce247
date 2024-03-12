@@ -7,11 +7,6 @@ public class MajorList {
     private ArrayList<Major> majors;
 
     private MajorList() {
-<<<<<<< HEAD
-        if (instance == null) instance = new MajorList(DataLoader.getMajorList("majorList.java"));
-        return instance;
-        // WIP
-=======
         majors = DataLoader.loadMajors("majors.json");
     }
     
@@ -20,7 +15,6 @@ public class MajorList {
             majorList = new MajorList();
         }
         return majorList;
->>>>>>> 573f75325be219570882a41078471a4618bb1258
     }
 
     public boolean haveMajor(String name ) {
