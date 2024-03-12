@@ -80,8 +80,7 @@ public class DegreeWorksUI {
             major = scanner.nextLine();
             System.out.println(major);
             if (major.equals("Computer Science")) {
-                System.out.println("DISPLAY MENU");
-                //DisplayStudentMenu(); // TODO: DISPLAY MENU
+                DisplayStudentMenu(); // TODO: DISPLAY MENU
             } else {
                 System.out.println("Incorrect major, exiting program!");
                 System.exit(0);
@@ -95,6 +94,60 @@ public class DegreeWorksUI {
             System.out.println("Failed to create account.");
         }
     }
+
+    public void DisplayStudentMenu() {
+        System.out.println("********Main Menu********");
+        System.out.println("1. View Degree Progress");
+        System.out.println("2. Register For Classes");
+        System.out.println("3. Drop Classes");
+        System.out.println("4. Log Out");
+
+        int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    DisplayDegreeProgress();
+                    break;
+                case 2:
+                    DisplayRegisterForClasses();
+                    break;
+                case 3:
+                    DisplayDropClasses();
+                    break;
+                case 4:
+                    System.out.println("Logging out...");
+                    mainMenu();
+                default:
+                    System.out.println("Invalid option, please try again.");
+            }
+    }
+
+    public void DisplayDegreeProgress() {
+        System.out.println("********Degree Progress********");
+        System.out.println("Compeleted Credits:" + );
+        System.out.println("Total Credits Required:" + );
+        System.out.println("Remaining Credits:" + );
+        System.out.println("Major:" + );
+
+        System.out.println("Completed Courses:");
+
+        System.out.println("Enrolled Courses:");
+
+        System.out.println("Remaining Courses:");
+
+        System.out.println("Current GPA:" +);
+
+        System.out.println("Enter B to go back:");
+    }
+
+    public void DisplayRegisterForClasses() {
+        // TODO
+    }
+
+    public void DisplayDropClasses() {
+        // TODO;
+    }
+
     public static void main(String[] args) {
         DegreeWorksApplication app = new DegreeWorksApplication();
         DegreeWorksUI ui = new DegreeWorksUI(app);
