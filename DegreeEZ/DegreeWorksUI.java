@@ -8,7 +8,6 @@ public class DegreeWorksUI {
     public DegreeWorksUI(DegreeWorksApplication app) {
         this.app = app;
         this.scanner = new Scanner(System.in);
-
     }
 
     public void mainMenu() {
@@ -32,7 +31,7 @@ public class DegreeWorksUI {
                     System.out.println("Exiting...");
                     return;
                 default:
-                    System.out.println("Invalid option, please try again");
+                    System.out.println("Invalid option, please try again.");
             }
         }
     }
@@ -78,14 +77,15 @@ public class DegreeWorksUI {
         String major = "";
         if (!isAdvisor) {
             System.out.print("Enter your major: ");
-            if() {
-                
-            }
-            
-            
             major = scanner.nextLine();
-            
-            // TODO: Ensure that the major is in the major list, and convert to UUID
+            System.out.println(major);
+            if (major.equals("Computer Science")) {
+                System.out.println("DISPLAY MENU");
+                //DisplayStudentMenu(); // TODO: DISPLAY MENU
+            } else {
+                System.out.println("Incorrect major, exiting program!");
+                System.exit(0);
+            }
         }
     
         User user = app.createAccount(isAdvisor, firstName, lastName, username, password, major);
@@ -95,11 +95,9 @@ public class DegreeWorksUI {
             System.out.println("Failed to create account.");
         }
     }
-    
     public static void main(String[] args) {
         DegreeWorksApplication app = new DegreeWorksApplication();
         DegreeWorksUI ui = new DegreeWorksUI(app);
         ui.mainMenu();
     }
-
 }
