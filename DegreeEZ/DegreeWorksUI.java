@@ -46,6 +46,7 @@ public class DegreeWorksUI {
         User user = app.login(username,password);
         if (user != null) {
             System.out.println("Login successful!");
+            // DISPLAY MENU AFTER
         } else {
             System.out.println("Login failed. Please check your credentials.");
         }
@@ -54,7 +55,7 @@ public class DegreeWorksUI {
     private void createAccount() {
         System.out.println("Are you an advisor or student? (A = Advisor | S = Student)");
         boolean isAdvisor = false;
-        String choice = scanner.nextLine(); // Read user input once
+        String choice = scanner.nextLine(); // Reads user input once
         if (choice.equals("S")) {
             isAdvisor = false;
         } else if (choice.equals("A")) {
@@ -77,7 +78,13 @@ public class DegreeWorksUI {
         String major = "";
         if (!isAdvisor) {
             System.out.print("Enter your major: ");
+            if() {
+                
+            }
+            
+            
             major = scanner.nextLine();
+            
             // TODO: Ensure that the major is in the major list, and convert to UUID
         }
     
