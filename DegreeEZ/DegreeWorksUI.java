@@ -38,7 +38,7 @@ public class DegreeWorksUI {
     }
 
     private void login() {
-        System.out.print("Enter username :");
+        System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
@@ -89,7 +89,6 @@ public class DegreeWorksUI {
         }
     }
     
-
     public static void main(String[] args) {
         DegreeWorksApplication app = new DegreeWorksApplication();
         DegreeWorksUI ui = new DegreeWorksUI(app);
