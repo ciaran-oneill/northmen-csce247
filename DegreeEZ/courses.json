@@ -9,6 +9,262 @@
             "minGrade": 0,
             "availability": ["Summer","Fall","Spring"]
         }
-    }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca622": {
+            "course_name": "Introduction to Computer Science",
+            "course_subject": "CSCE",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca623": {
+            "course_name": "General Applications Programming",
+            "course_subject": "CSCE",
+            "course_number": "102",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca624": {
+            "course_name": "Program Design and Development",
+            "course_subject": "CSCE",
+            "course_number": "104",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca625": {
+            "course_name": "Scientific Applications Programming",
+            "course_subject": "CSCE",
+            "course_number": "106",
+            "course_prereq": ["MATH 122", "MATH 141" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca626": {
+            "course_name": "Algorithmic Design I",
+            "course_subject": "CSCE",
+            "course_number": "145",
+            "course_prereq": ["MATH 111 or MATH 115" ],
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    },
+    { 
+        "dbbe9692-d811-4230-90bb-d0197a2ca627": {
+            "course_name": "Algorithmic Design II",
+            "course_subject": "CSCE",
+            "course_number": "146",
+            "course_prereq": ["CSCE 145", "MATH 122 or MATH 141"], 
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca628": {
+            "course_name": "Artificial Intelligence for All",
+            "course_subject": "CSCE",
+            "course_number": "180",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca629": {
+            "course_name": "Computing in the Modern World",
+            "course_subject": "CSCE",
+            "course_number": "190",
+            "course_prereq": ["CSCE 145 or CSCE 204 or CSCE 205 or CSCE 206" ],
+            "creditHours": 1,
+            "minGrade": 0,
+            "availability": ["Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca630": {
+            "course_name": "Introduction to Computer Security",
+            "course_subject": "CSCE",
+            "course_number": "201",
+            "course_prereq": ["CSCCE 101 or CSCE 102 or CSCE 145" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca631": {
+            "course_name": "Business Applicaitons Programming",
+            "course_subject": "CSCE",
+            "course_number": "205",
+            "course_prereq": ["MGSC 290 or CSCE 101" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca632": {
+            "course_name": "UNIX System Administration",
+            "course_subject": "CSCE",
+            "course_number": "207",
+            "course_prereq": ["MATH 122 or MATH 141" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca633": {
+            "course_name": "Special Topics in Computer Programming",
+            "course_subject": "CSCE",
+            "course_number": "209",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca634": {
+            "course_name": "Computer Hardware Foundations",
+            "course_subject": "CSCE",
+            "course_number": "210",
+            "course_prereq": ["CSCE 145 or CSCE 204 or CSCE 205 or CSCE 206 or CSCE 207" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca635": {
+            "course_name": "Digital Logic Design",
+            "course_subject": "CSCE",
+            "course_number": "211",
+            "course_prereq": ["MATH 141" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca636": {
+            "course_name": "Introduction to Computer Architecture",
+            "course_subject": "CSCE",
+            "course_number": "212",
+            "course_prereq": ["CSCE 211", "CSCE 145 or CSCE 206" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca637": {
+            "course_name": "UNIX/LINUX Fundamentals",
+            "course_subject": "CSCE",
+            "course_number": "215",
+            "course_prereq": ["CSCE 145" ],
+            "creditHours": 1,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca638": {
+            "course_name": "Advanced Programming Techniques",
+            "course_subject": "CSCE",
+            "course_number": "240",
+            "course_prereq": ["CSCE 215", "CSCE 146" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca639": {
+            "course_name": "Web Applications",
+            "course_subject": "CSCE",
+            "course_number": "242",
+            "course_prereq": ["CSCE 190", "CSCE 146" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall", "Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca640": {
+            "course_name": "Software Engineering",
+            "course_subject": "CSCE",
+            "course_number": "247",
+            "course_prereq": ["CSCE 146" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall","Spring"]
+        }
+    },
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca641": {
+            "course_name": "Robotic Applications and Design",
+            "course_subject": "CSCE",
+            "course_number": "274",
+            "course_prereq": ["CSCE 146" ],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Fall"]
+        }
+    },
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca642": {
+            "course_name": "Critical Reading and Composition",
+            "course_subject": "ENGL",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca643": {
+            "course_name": "Rhetoric and Composition",
+            "course_subject": "ENGL",
+            "course_number": "102",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    },
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca642": {
+            "course_name": "Introduciton to Art",
+            "course_subject": "AIU",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    
+
+    
     
 ]

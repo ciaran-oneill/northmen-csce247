@@ -19,24 +19,29 @@ public class CourseList {
         return courseList;
     }
     public boolean haveCourse(Subject name, int number) {
-        if()
+        return true;
     }
-<<<<<<< HEAD
+
     public Course getCourseByName(String name) {
         for (Course course : courses) {
             if (course.getName().equals(name)) {
                 return course;
             }
         }
-        return null; // or throw an exception if preferred
-=======
-    public Course getCourse(String name, int number) {
-        if(!haveCourse(name, number)) return null;
-
-        return new Course(name, number);
-
->>>>>>> 573f75325be219570882a41078471a4618bb1258
+            return null; // or throw an exception if preferred
     }
+
+    public Course getCourse(String name, int number) {
+        if(!haveCourse(name, number)) {
+            return null;
+        }
+        return courses.get(createKey(name,number));
+    }
+        private String createKey(String name, int number) {
+            return name + "_" +  number;
+        }
+
+    
 
     public Course getCourseByUUID(UUID id) {
         for (Course course : courses) {
