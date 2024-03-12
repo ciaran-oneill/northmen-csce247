@@ -253,9 +253,10 @@
         }
     },
     {
-        "dbbe9692-d811-4230-90bb-d0197a2ca642": {
+        "dbbe9692-d811-4230-90bb-d0197a2ca644": {
             "course_name": "Introduciton to Art",
-            "course_subject": "AIU",
+            "course_subject": "ARTE",
+            "carolina_core": "AIU",
             "course_number": "101",
             "course_prereq": [],
             "creditHours": 3,
@@ -263,6 +264,174 @@
             "availability": ["Summer","Fall","Spring"]
         }
     }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca645": {
+            "course_name": "Fundamentals of Art",
+            "course_subject": "ARTE",
+            "carolina_core": "AIU",
+            "course_number": "103",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca646": {
+            "course_name": "Introduction to Logic",
+            "course_subject": "PHIL",
+            "carolina_core": "ARP",
+            "course_number": "111",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca647": {
+            "course_name": "Introduction to Statistical Reasoning",
+            "course_subject": "STAT",
+            "carolina_core": "ARP",
+            "course_number": "110",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca648": {
+            "course_name": "Elementary Statistics for Business",
+            "course_subject": "STAT",
+            "carolina_core": "ARP",
+            "course_number": "206",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca649": {
+            "course_name": "Public Communication",
+            "course_subject": "SPCH",
+            "carolina_core": "CMS",
+            "course_number": "140",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca650": {
+            "course_name": "Online Public Communicaitons",
+            "course_subject": "SPCH",
+            "carolina_core": "CMS",
+            "course_number": "145",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca651": {
+            "course_name": "Beginning French I",
+            "course_subject": "FREN",
+            "carolina_core": "GFL",
+            "course_number": "109",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca652": {
+            "course_name": "Beginning Latin I",
+            "course_subject": "LATIN",
+            "carolina_core": "GFL",
+            "course_number": "109",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca653": {
+            "course_name": "Film and Media History",
+            "course_subject": "FAMS",
+            "carolina_core": "GHS",
+            "course_number": "300",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca654": {
+            "course_name": "Introduciton to South Asian History",
+            "course_subject": "HIST",
+            "carolina_core": "GFL",
+            "course_number": "103",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca655": {
+            "course_name": "Introduciton to Astronomy",
+            "course_subject": "ASTR",
+            "carolina_core": "SCI",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca656": {
+            "course_name": "Biological Principles I",
+            "course_subject": "BIOL",
+            "carolina_core": "SCI",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca657": {
+            "course_name": "Food and Culture",
+            "course_subject": "ANTH",
+            "carolina_core": "VSR",
+            "course_number": "212",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }, 
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca658": {
+            "course_name": "Literature and Society",
+            "course_subject": "ENGL",
+            "carolina_core": "VSR",
+            "course_number": "280",
+            "course_prereq": [],
+            "creditHours": 3,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    }
     
 
     
