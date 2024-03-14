@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Advisor extends User {
     ArrayList<Student> students;
 
-    public Advisor(UUID uuid, String userName, String firstName, String lastName, String password, ArrayList<Student> students) {
+    public Advisor(UUID uuid, String userName, String firstName, String lastName, String password, ArrayList<UUID> students) {
         super(uuid, userName, firstName, lastName, password);
         this.students = students;
     }
