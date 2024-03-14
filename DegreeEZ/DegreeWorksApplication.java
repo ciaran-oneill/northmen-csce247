@@ -29,11 +29,11 @@ public class DegreeWorksApplication {
         UUID uuid = UUID.randomUUID();
         User newUser;
         if (!isAdvisor) {
-            newUser = new Student(uuid, firstName, lastName, username, password,UUID null , new ArrayList<Course>(), new ArrayList<Course>(), null);
-            userList.add(newUser);
+            newUser = new Student(uuid, firstName, lastName, username, password, UUID , new ArrayList<CompletedCourse>(), new ArrayList<Course>(), null);
+            userList.addUser(newUser);
         } else if (isAdvisor) {
             newUser = new Advisor(uuid, firstName, lastName, username, password, new ArrayList<>());
-            userList.add(newUser);
+            userList.addUser(newUser);
         } else {
             return false; // Invalid user type
         }

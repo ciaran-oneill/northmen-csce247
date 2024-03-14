@@ -1,6 +1,7 @@
 [
-    {
-        "97372bf4-24d2-4f70-968c-12898596277e": {
+    
+        {
+        "uuid": "97372bf4-24d2-4f70-968c-12898596277e", 
             "student_firstName": "John",
             "student_lastName": "Smith",
             "student_username": "john-smith-2003",
@@ -10,6 +11,30 @@
             "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
             "outstandingReq": ["CSCE322"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
+        },
+        {
+         "uuid": "97372bf4-24d2-4f70-968c-12898596277e1",
+         "student_firstName": "Brax",
+         "student_lastName": "West",
+         "student_username": "brax-west-2005",
+         "student_password": "password",
+         "student_major": "Comupter Science",
+         "enrolledClasses": ["CSCE242"],
+         "completedCourses": ["CSCE141"],
+         "outstandingReq" : ["GFL"],
+         "advisor": "Osbert Odden"
+        },
+        {
+        "uuid": "97372bf4-24d2-4f70-968c-12898596277e2", 
+            "student_firstName": "Tawnie",
+            "student_lastName": "Hill",
+            "student_username": "tawnie-hill-2003",
+            "student_password": "abc12345",
+            "student_major": "Computer Information System",
+            "completedCourses" : ["CSCE141"],
+            "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
+            "outstandingReq": ["CSCE322"],
+            "advisor": "2a5236a-2c6d-4002-bf16-ff0174b0e243"
         }
-    }
+    
 ]
