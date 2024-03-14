@@ -158,7 +158,12 @@ class DataLoader {
                     for (String sem : availability) {
                         semesters.add(Semester.valueOf(sem.toUpperCase()));
                     }
+<<<<<<< HEAD
                     courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semesters));
+=======
+                    // Assuming prerequisites are just a list of course names and minGrade is a fixed value or not required here
+                    courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semester));
+>>>>>>> 381fa4ec69900f6d0ee1bd95079dc695b4fe1d51
                 }
             }
         } catch (Exception e) {

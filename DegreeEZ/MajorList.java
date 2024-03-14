@@ -2,29 +2,54 @@ package DegreeEZ;
 import java.util.ArrayList;
 
 public class MajorList {
-    private static User instance;
-    private MajorList majorList;
-    private ArrayList<Major> majors;
+   // private static User instance;
+    private static MajorList majorList;
+    private ArrayList<Major> majors = new ArrayList<>();
 
     private MajorList() {
-<<<<<<< HEAD
-        
-=======
-        if (instance == null) instance = new MajorList(DataLoader.getMajorList("majorList.java"));
-        return instance;
-        // WIP
->>>>>>> 71d0db7200ad1d516c66a288626896c41b75665c
+        majors = DataLoader.loadMajors("majors.json");
     }
-
+    
     public static MajorList getInstance() {
-        if (instance == null) instance = new Users(DataLoader.getUsers("users.json"));
-        return instance;
-        // WIP
+        if(majorList==null) {
+            majorList = new MajorList();
+        }
+        return majorList;
     }
 
-    public ArrayList<Major> getMajors() {
-        if (instance == null) instance = new Major(DataLoader.getMajors("majors.json"));
-        return instance;
-        //WIP
-    } 
+    public boolean haveMajor(String name ) {
+        return true;
+    }
+
+    public boolean addMajor(Major major) {
+        for (Major existingMajor : majors) {
+            if(existingMajor.getMajorName().equals(major.getMajorName())) {
+                System.out.println("Major already exists");
+                return false;
+            }
+        }
+        majors.add(major);
+        return true;
+    }
+
+    public Major getMajor(String majorName) {
+        for (Major major : majors) {
+            if(major.getMajorName().equals(majorName)) {
+                return major;
+            }
+        }
+        System.out.println("Major not found");
+        return null;
+    }
+
+    public boolean MajorNameExists(String majorName) {
+        for (Major major : majors) {
+            if (major.getMajorName().equals(majorName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

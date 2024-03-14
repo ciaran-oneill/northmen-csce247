@@ -41,7 +41,6 @@ public class DegreeWorksApplication {
         users.add(newUser);
         return true; // Account creation successful
     }
-    
 }
 
 
