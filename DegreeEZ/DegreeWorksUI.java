@@ -80,7 +80,10 @@ public class DegreeWorksUI {
             major = scanner.nextLine();
             System.out.println(major);
             if (major.equals("Computer Science")) {
-                DisplayStudentMenu(); // TODO: DISPLAY MENU
+                DisplayStudentMenu(); 
+                /*
+                 * TODO: DISPLAY MENU
+                 */
             } else {
                 System.out.println("Incorrect major, exiting program!");
                 System.exit(0);
@@ -96,7 +99,7 @@ public class DegreeWorksUI {
     }
 
     public void DisplayStudentMenu() {
-        System.out.println("********Main Menu********");
+        System.out.println("******** Main Menu ********");
         System.out.println("1. View Degree Progress");
         System.out.println("2. Register For Classes");
         System.out.println("3. Drop Classes");
@@ -112,7 +115,7 @@ public class DegreeWorksUI {
                     DisplayRegisterForClasses();
                     break;
                 case 3:
-                    DisplayDropClasses();
+                    DisplayDropClassesMenu();
                     break;
                 case 4:
                     System.out.println("Logging out...");
@@ -123,29 +126,114 @@ public class DegreeWorksUI {
     }
 
     public void DisplayDegreeProgress() {
-        System.out.println("********Degree Progress********");
+        System.out.println("******** Degree Progress ********");
         System.out.println("Compeleted Credits:" + );
         System.out.println("Total Credits Required:" + );
         System.out.println("Remaining Credits:" + );
         System.out.println("Major:" + );
 
-        System.out.println("Completed Courses:");
-
-        System.out.println("Enrolled Courses:");
-
-        System.out.println("Remaining Courses:");
-
-        System.out.println("Current GPA:" +);
+        System.out.println("Completed Courses:" + );
+        System.out.println("Enrolled Courses:" + );
+        System.out.println("Remaining Courses:" + );
+        System.out.println("Current GPA:" + );
 
         System.out.println("Enter B to go back:");
+        /*
+         * TODO: TEST THE SWITCH METHOD
+         */
+        String choice = scanner.nextLine();
+        scanner.nextLine();
+        switch (choice) {
+            case "B":
+                DisplayStudentMenu();
+                break;
+            default:
+                System.out.println("Invalid option, please try again.");
+        }
     }
 
     public void DisplayRegisterForClasses() {
-        // TODO
+        System.out.println("******** Register for Classes ********");
+        System.out.println("Click the corresponding number for the class to view availability.");
+        System.out.println("(LIST OF REQUIRED, NOT YET TAKEN CLASSES, FOR EXAMPLE:)");
+        /*
+         * TODO: DISPLAY REQUIRED CLASSES, NOT YET TAKEN CLASSES
+         */
+        System.out.println("Choose Class Number or Enter 0 to go back:");
+        /*
+         * TODO: Switch statement?
+         */
     }
 
-    public void DisplayDropClasses() {
-        // TODO;
+    public void DisplayDropClassesMenu() {
+        System.out.println("******** Drop Classes ********");
+        System.out.println("List of Currently Enrolled Classes:");
+        /*
+         * TODO: DISPLAY CURRENTLY ENROLLED CLASSES
+         */
+        System.out.println("Select the course you want to drop or Enter 0 to go back:");
+        /*
+         * TODO: Switch statement?
+         */
+    }
+
+    public void DisplayClassIsAvailable() {
+        System.out.println("******** Register for Classes ********");
+        System.out.println("Class Name:" + );
+        System.out.println("Class Subject:" + );
+        System.out.println("Class Number:" + );
+        System.out.println("Availability:" + );
+        System.out.println("\nWhat would you like to do?");
+        System.out.println("1. Register for Class");
+        System.out.println("2. Back to Classes");
+        System.out.println("3. Back to Main Menu");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                /*
+                 * Register for class code
+                 */
+                break;
+            case 2:
+                DisplayRegisterForClasses();
+                break;
+            case 3:
+                DisplayStudentMenu();
+                break;
+            default:
+                System.out.println("Invalid option, please try again.");
+        } 
+    }
+
+    public void DisplayClassRegistered() {
+        System.out.println("Class Registered!");
+        DisplayRegisterForClasses();
+    }
+
+    public void DisplayDropClass(){
+        System.out.println("******** Drop Classes ********");
+        System.out.println("Are you sure you want to drop " + " ?");
+        System.out.println("Enter Y/N?");
+        
+        String choice = scanner.nextLine();
+        scanner.nextLine();
+        switch (choice) {
+            case "Y":
+                /*
+                * Code to drop class
+                */
+                System.out.println( + " has been dropped!");
+                DisplayDropClassesMenu();
+                break;
+            case "N":
+                DisplayDropClassesMenu();
+                break;
+            default:
+                System.out.println("Invalid option, please try again.");
+        }
+        
     }
 
     public static void main(String[] args) {
