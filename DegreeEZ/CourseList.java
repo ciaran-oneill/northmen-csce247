@@ -31,7 +31,17 @@ public class CourseList {
             return null; // or throw an exception if preferred
     }
 
-    public Course getCourse(String name, int number) {
+    public Course getCourse(String name) {
+        for (Course course : courses) {
+            if(course.getName().equals(name)) {
+                return course;
+            }
+        }
+        System.out.println("Course not found");
+        return null;
+    }
+/*
+ * public Course getCourse(String name, int number) {
         if(!haveCourse(name, number)) {
             return null;
         }
@@ -40,6 +50,8 @@ public class CourseList {
         private String createKey(String name, int number) {
             return name + "_" +  number;
         }
+ */
+    
 
     
 
