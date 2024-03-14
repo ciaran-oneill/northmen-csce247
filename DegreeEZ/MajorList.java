@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class MajorList {
    // private static User instance;
     private static MajorList majorList;
-    private ArrayList<Major> majors;
+    private ArrayList<Major> majors = new ArrayList<>();
 
     private MajorList() {
         majors = DataLoader.loadMajors("majors.json");
@@ -22,18 +22,34 @@ public class MajorList {
     }
 
     public boolean addMajor(Major major) {
-        
+        for (Major existingMajor : majors) {
+            if(existingMajor.getMajorName().equals(major.getMajorName())) {
+                System.out.println("Major already exists");
+                return false;
+            }
+        }
+        majors.add(major);
+        return true;
+    }
+
+    public Major getMajor(String majorName) {
+        for (Major major : majors) {
+            if(major.getMajorName().equals(majorName)) {
+                return major;
+            }
+        }
+        System.out.println("Major not found");
+        return null;
+    }
+
+    public boolean MajorNameExists(String majorName) {
+        for (Major major : majors) {
+            if (major.getMajorName().equals(majorName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
-
-        
-
-    
-
-    public ArrayList<Major> getMajors() {
-        if (instance == null) instance = new Major(DataLoader.getMajors("majors.json"));
-        return instance;
-        //WIP
-    } 
 }
