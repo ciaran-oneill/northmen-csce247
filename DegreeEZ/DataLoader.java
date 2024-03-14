@@ -20,7 +20,7 @@ class DataLoader {
                     UUID major = null;
                     ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
                     ArrayList<Course> enrolledClasses = new ArrayList<>();
-                    ArrayList<String> outstandingReq = new ArrayList<>();
+                    ArrayList<Course> outstandingReq = new ArrayList<>();
                     UUID advisor = null;
 
                     while (!(line = reader.readLine().trim()).equals("}")) {
@@ -52,7 +52,6 @@ class DataLoader {
         }
         while (!(line = reader.readLine().trim()).equals("]")) { // Until the end of the array
             if (!line.equals("[")) { // Skip the starting bracket of the array
-                // Simplified parsing logic, assuming a structure like: { "courseId": "uuid", "grade": "A" }
                 UUID courseId = null;
                 String grade = "";
                 // Extract courseId and grade from the current object
@@ -64,7 +63,7 @@ class DataLoader {
                     grade = extractValue(line);
                 }
                 completedCourses.add(new CompletedCourse(courseId, grade));
-                reader.readLine(); // Assuming this reads the closing '}' of the completed course object
+                reader.readLine(); 
             }
         }
         return completedCourses;
@@ -154,14 +153,11 @@ class DataLoader {
                         else if (line.contains("creditHours")) creditHours = Integer.parseInt(extractValue(line));
                         else if (line.trim().startsWith("\"availability\"")) availability = parseStringArray(reader);
                     }
-                    // Assuming a method to convert courseSubject string to Subject enum
                     Subject subject = Subject.valueOf(courseSubject.toUpperCase());
-                    // Assuming a method to convert availability strings to Semester enum list
                     ArrayList<Semester> semesters = new ArrayList<>();
                     for (String sem : availability) {
                         semesters.add(Semester.valueOf(sem.toUpperCase()));
                     }
-                    // Assuming prerequisites are just a list of course names and minGrade is a fixed value or not required here
                     courses.add(new Course(id, courseName, subject, courseNumber, coursePrereq, creditHours, semesters));
                 }
             }
