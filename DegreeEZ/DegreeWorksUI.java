@@ -76,10 +76,10 @@ public class DegreeWorksUI {
         // Only ask for major if it's a student
         String major = "";
         if (!isAdvisor) {
-            System.out.print("Enter your major: ");
+            System.out.print("Enter your major (Computer Science or CIS): ");
             major = scanner.nextLine();
             System.out.println(major);
-            if (major.equals("Computer Science")) {
+            if (major.equals("Computer Science") || major.equals("CIS")) {
                 DisplayStudentMenu(); 
                 /*
                  * TODO: DISPLAY MENU
