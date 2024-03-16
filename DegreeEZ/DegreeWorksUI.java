@@ -76,10 +76,10 @@ public class DegreeWorksUI {
         // Only ask for major if it's a student
         String major = "";
         if (!isAdvisor) {
-            System.out.print("Enter your major: ");
+            System.out.print("Enter your major (Computer Science or CIS): ");
             major = scanner.nextLine();
             System.out.println(major);
-            if (major.equals("Computer Science")) {
+            if (major.equals("Computer Science") || major.equals("CIS")) {
                 DisplayStudentMenu(); 
                 /*
                  * TODO: DISPLAY MENU
@@ -179,10 +179,10 @@ public class DegreeWorksUI {
 
     public void DisplayClassIsAvailable() {
         System.out.println("******** Register for Classes ********");
-        System.out.println("Class Name:" + );
-        System.out.println("Class Subject:" + );
-        System.out.println("Class Number:" + );
-        System.out.println("Availability:" + );
+        System.out.println("Class Name:" + courseName);
+        System.out.println("Class Subject:" + courseSubject);
+        System.out.println("Class Number:" + courseNumber);
+        System.out.println("Availability:" + courseAvailability);
         System.out.println("\nWhat would you like to do?");
         System.out.println("1. Register for Class");
         System.out.println("2. Back to Classes");
@@ -227,7 +227,7 @@ public class DegreeWorksUI {
                 /*
                 * TODO: Code to drop class
                 */
-                System.out.println( + " has been dropped!");
+                System.out.println(courseName + " has been dropped!");
                 DisplayDropClassesMenu();
                 break;
             case "N":
@@ -249,7 +249,7 @@ public class DegreeWorksUI {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    DisplayStudentDegreeProgress();
+                    DisplayStudentDegreeProgressMenu();
                     break;
                 case 2:
                     DisplayChangeStudentsMajorMenu();
@@ -265,7 +265,7 @@ public class DegreeWorksUI {
             }
     }
 
-    public void DisplayStudentDegreeProgress() {
+    public void DisplayStudentDegreeProgressMenu() {
         System.out.println("******** View Student Degree Progress ********");
         System.out.println("Choose Student:");
         /*
@@ -277,16 +277,79 @@ public class DegreeWorksUI {
             scanner.nextLine();
     }
 
+    // ADVISOR VIEW FOR STUDENT'S DEGREE PROGRESS
+    public void DisplayStudentDegreeProgress() {
+        System.out.println("******** Degree Progress ********");
+        System.out.println("Compeleted Credits:" + completedCredits);
+        System.out.println("Total Credits Required:" + totalCreditsRequired);
+        System.out.println("Remaining Credits:" + reaminingCredits);
+        System.out.println("Major:" + currentMajor);
+
+        System.out.println("Completed Courses:" + completedCourses);
+        System.out.println("Enrolled Courses:" + enrolledCourses);
+        System.out.println("Remaining Courses:" + remainingCourses);
+        System.out.println("Current GPA:" + studentGPA);
+        // POSSIBLY PRINT ANY CURRENT ADVISOR NOTES?
+
+        System.out.println("Enter 1 to leave a note or enter 0 to go back:");
+        /*
+         * TODO: TEST THE SWITCH METHOD
+         */
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 0:
+                DisplayAdvisorNotes();
+                break;
+            case 1:
+                DisplayAdvisorMenu();
+                break;
+            default:
+                System.out.println("Invalid option, please try again.");
+        }
+    }
+
+    public void DisplayAdvisorNotes() {
+        System.out.println("******** Advisor Notes ********");
+        System.out.println("Enter a note:");
+
+        String note = scanner.nextLine();
+        scanner.nextLine();
+        /*
+         * TODO: Code to put note into selected student's degree progress
+         */
+        if(note.equalsIgnoreCase("b")) {
+            DisplayAdvisorMenu();
+        }
+    }
+
     public void DisplayChangeStudentsMajorMenu() {
         System.out.println("******** Change Student's Major ********");
         System.out.println("Choose Student:");
         /*
          * TODO: SHOW ADVISOR'S STUDENTS
          */
-        System.out.println("Choose student's corresponding number:");
+        System.out.println("Choose student's corresponding number or enter 0 to go back:");
 
         int choice = scanner.nextInt();
             scanner.nextLine();
+            switch (choice) {
+                case 0:
+                    DisplayAdvisorMenu();
+                    break;
+                case 1:
+                    /*
+                     * TODO: Choose student 1's major to change code
+                     */
+                    break;
+                case 2:
+                    /*
+                     * TODO: Choose student 2's major to change coce code
+                     */
+                    break;
+                default:
+                    System.out.println("Invalid option, please try again.");
+            }
     }
 
     public void DisplayChangeStudentsMajor() {
@@ -299,10 +362,8 @@ public class DegreeWorksUI {
         /*
          * TODO: Add code to check if correct major is chosen
          */
-
         System.out.println(firstName + " " + lastName + "'s major has been changed from" + oldMajor + " to " + newMajor);
-        
-
+        DisplayChangeStudentsMajorMenu();
     }
 
     public void DisplayPerformStudentDegreeAuditMenu() {
@@ -312,41 +373,38 @@ public class DegreeWorksUI {
          * TODO: SHOW ADVISOR'S STUDENTS
          */
         System.out.println("Choose student or enter 0 to go back:");
-    }
-
-    public void DisplayPerformStudentDegreeAudit() {
-        System.out.println("******** Degree Audit ********");
-        System.out.println("Student: " + " " +);
-        System.out.println("Major: " +);
-        System.out.println("\n1. Add Compeleted Course");
-        System.out.println("2. Register Class");
-        System.out.println("3. Add Required Course");
-        System.out.println("4. Back to Students");
-        System.out.println("5. Back to Main Menu");
 
         int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
+                case 0:
+                    DisplayAdvisorMenu();
+                    break;
                 case 1:
-                    //FILL IN
+                    /*
+                     * TODO: Choose student 1's degree progress code
+                     */
                     break;
                 case 2:
-                    //FILL IN
-                    break;
-                case 3:
-                    //FILL IN
-                    break;
-                case 4:
-                    DisplayPerformStudentDegreeAuditMenu();
-                    break;
-                case 5:
-                    DisplayAdvisorMenu();
+                    /*
+                     * TODO: Choose student 2's degree progess code
+                     */
                     break;
                 default:
                     System.out.println("Invalid option, please try again.");
             }
-    }
 
+        System.out.println("Enter 0 to go back:");
+        int choice2 = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice2) {
+                case 0:
+                    DisplayAdvisorMenu();
+                    break;
+                default:
+                System.out.println("Invalid option, please try again.");
+            }
+    }
     public static void main(String[] args) {
         DegreeWorksApplication app = new DegreeWorksApplication();
         DegreeWorksUI ui = new DegreeWorksUI(app);

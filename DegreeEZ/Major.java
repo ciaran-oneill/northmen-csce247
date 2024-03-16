@@ -9,7 +9,11 @@ public class Major {
     public ArrayList<Course> requiredCourses;
     public HashMap<String, Electives> electiveCats;
 
+<<<<<<< HEAD
     public Major(UUID majorId, String majorName, ArrayList<Course> requiredCourses) { // need to implement elective cats still
+=======
+    public Major(UUID majorId,String majorName, ArrayList<Course> requiredCourses) { // need to implement elective cats still
+>>>>>>> ba2302bf09009b174a482415b6a763866c1d5a91
         this.majorName = majorName;
         this.requiredCourses = requiredCourses;
         this.electiveCats = electiveCats;
