@@ -7,7 +7,7 @@ public class UserList {
     private ArrayList<User> users = new ArrayList<>();
 
     public UserList() {
-        users = DataLoader.getUsers("students.json" , "advisors.json");
+        users = DataLoader.loadUsers("students.json" , "advisors.json");
     }
 
     public static UserList getInstance() {

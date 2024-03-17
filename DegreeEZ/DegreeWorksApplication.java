@@ -21,7 +21,7 @@ public class DegreeWorksApplication {
         return null; // Login failed
     }
 
-    public User createAccount(boolean isAdvisor, String firstName, String lastName, String username, String password, String major) {
+    public boolean createAccount(boolean isAdvisor, String firstName, String lastName, String username, String password, String major) {
         if (users.stream().anyMatch(user -> user.getUserName().equals(username))) {
             return false; // Username already exists
         }

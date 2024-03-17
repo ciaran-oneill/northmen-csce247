@@ -9,6 +9,14 @@ import java.util.UUID;
 
 class DataLoader {
 
+    public static ArrayList<User> loadUsers(String studentsFilePath, String advisorsFilePath) {
+        ArrayList<User> users = new ArrayList<>();
+        users.addAll(loadStudents(studentsFilePath));
+        users.addAll(loadAdvisors(advisorsFilePath));
+        return users;
+    }
+    
+
     public static ArrayList<Student> loadStudents(String filePath) {
         ArrayList<Student> students = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
