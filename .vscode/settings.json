@@ -1,3 +1,7 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.referencedLibraries": [
+        "*.jar",
+        "DegreeEZ/lib/json-simple-1.1.1.jar"
+    ]
 }
