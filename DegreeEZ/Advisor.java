@@ -99,6 +99,10 @@ public class Advisor extends User {
         // Adds a 'required' course to the specified student's degree progress
     }
 
+    public static void addAdvisorNoteToStudent(Student student, String note) {
+        student.setAdvisorNote(note);
+    }
+
     public List<UUID> getStudentUuids() {
         List<UUID> studentUuids = new ArrayList<>();
         for (Student student : students) {
