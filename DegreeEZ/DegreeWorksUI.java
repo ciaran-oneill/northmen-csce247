@@ -163,6 +163,13 @@ public class DegreeWorksUI {
 
         System.out.println("Current GPA:" + 0.0);
 
+        if (!student.getAdvisorNote().isEmpty()) {
+            System.out.println("\nAdvisor's Note:");
+            System.out.println(student.getAdvisorNote());
+        } else {
+            System.out.println("No messages from advisor");
+        }
+        
         System.out.println("Enter B to go back:");
     }
 

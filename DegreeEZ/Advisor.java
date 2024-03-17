@@ -33,6 +33,7 @@ public class Advisor extends User {
         System.out.println("2) Add course to completed courses");
         System.out.println("3) Add course to required courses");
         System.out.println("4) Add course to enrolled courses (bypass prerequisites)");
+        System.out.println("5) Add a note or message for student");
 
         int option = scanner.nextInt();
         scanner.nextLine();
@@ -76,6 +77,12 @@ public class Advisor extends User {
                 }
                 student.getEnrolledCourses().add(c);
                 System.out.println("Added " + c);
+            case 5:
+                System.out.println("Enter a note or message to leave on student's profile");
+                String noteToStudent = scanner.nextLine();
+                Advisor.addAdvisorNoteToStudent(student, noteToStudent);
+                System.out.println("Added a note to student");
+                break;
         }
     }
 

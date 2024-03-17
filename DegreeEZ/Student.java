@@ -10,6 +10,7 @@ public class Student extends User {
     private ArrayList<Course> enrolledCourses;
     private ArrayList<Course> outstandingRequirements;
     private UUID advisorUUID;
+    private String advisorNote;
 
     // Constructor
     public Student(UUID uuid,
@@ -28,6 +29,8 @@ public class Student extends User {
         this.enrolledCourses = enrolledCourses;
         this.outstandingRequirements = outstandingRequirements;
         this.advisorUUID = advisorUUID;
+        this.advisorNote = "";
+
     }
     public Student(UUID uuid,
                    String firstName,
@@ -116,6 +119,14 @@ public class Student extends User {
             }
         }
         return true;
+    }
+
+    public String getAdvisorNote() {
+        return advisorNote;
+    }
+
+    public void setAdvisorNote(String advisorNote) {
+        this.advisorNote = advisorNote;
     }
 
     public String toString() {
