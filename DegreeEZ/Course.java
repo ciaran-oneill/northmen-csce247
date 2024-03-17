@@ -3,9 +3,12 @@ package DegreeEZ;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-public abstract class Course {
+public class Course {
+    private static final Map<UUID, Course> COURSE_REGISTRY = new HashMap<>();
+
     private UUID id;
     private Subject subject;
     private int number;
@@ -17,6 +20,7 @@ public abstract class Course {
 
     // Constructor
     public Course(UUID id, String name, Subject subject, int number, ArrayList<HashMap<Course,String>> prerequisites, int minGrade, ArrayList<Semester> availability, int creditHours) {
+
         this.id = UUID.randomUUID(); // Generate a unique ID for each course
         this.subject = subject;
         this.number = number;
@@ -24,11 +28,22 @@ public abstract class Course {
         this.minGrade = minGrade;
         this.prerequisites = new ArrayList<>();
         this.availability = new ArrayList<>();
+        registerCourse(this);
     }
 
-    public Course(Subject subject) {
-        
-    }
+   private static void registerCourse(Course course) {
+    COURSE_REGISTRY.put(course.getId(), course);
+   }
+
+   /**
+ * @param id
+ * @return Course
+ */
+public static Course getCourseById(UUID id) {
+    return COURSE_REGISTRY.get(id);
+   }
+
+   private 
 
     // Getters and setters
     public UUID getId() {

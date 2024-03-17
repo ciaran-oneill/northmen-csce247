@@ -1,0 +1,26 @@
+[
+    {
+        "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca621",
+        "name": "Algebra I",
+        "subject": "MATH",
+        "number": 141,
+        "prerequisites": [],
+        "minGrade": 0,
+        "creditHours": 4,
+        "finalGrade": 95,
+        "semesterTaken": "Fall",
+        "pass": true
+    },
+    {
+        "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca622",
+        "name": "Introduction to Computer Science",
+        "subject": "CSCE",
+        "number": 101,
+        "prerequisites": [],
+        "minGrade": 0,
+        "creditHours": 3,
+        "finalGrade": 88,
+        "semesterTaken": "Spring",
+        "pass": true
+    }
+]

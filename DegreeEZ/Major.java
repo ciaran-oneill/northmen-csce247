@@ -7,13 +7,10 @@ public class Major {
     public UUID majorID;
     public String majorName;
     public ArrayList<Course> requiredCourses;
-    public HashMap<String, Electives> electiveCats;
+    public ArrayList<HashMap<String, Electives>> electiveCats;
 
-<<<<<<< HEAD
-    public Major(UUID majorId, String majorName, ArrayList<Course> requiredCourses) { // need to implement elective cats still
-=======
-    public Major(UUID majorId,String majorName, ArrayList<Course> requiredCourses) { // need to implement elective cats still
->>>>>>> ba2302bf09009b174a482415b6a763866c1d5a91
+    public Major(UUID majorId, String majorName, ArrayList<Course> requiredCourses, ArrayList<HashMap<String,Electives>> electiveCats) { // need to implement elective cats still
+        this.majorID = majorId;
         this.majorName = majorName;
         this.requiredCourses = requiredCourses;
         this.electiveCats = electiveCats;
