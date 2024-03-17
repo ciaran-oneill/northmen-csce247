@@ -1,9 +1,9 @@
 [
     {
         "97372bf4-24d2-4f70-968c-12898596277e": {
-            "student_firstName": "John",
-            "student_lastName": "Smith",
-            "student_username": "john-smith-2003",
+            "student_firstName": "Brax",
+            "student_lastName": "West",
+            "student_username": "brax-west-2003",
             "student_password": "abc123",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
             "completedCourses" : ["CSCE101","CSCE240"],
@@ -11,7 +11,7 @@
             [
                 "CLIM101"
             ],
-            "outstandingReq": ["MATH147"],
+            "outstandingReq": ["ENGL102"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243",
             "advisorNote": "This is a note from the advisor."
         }
