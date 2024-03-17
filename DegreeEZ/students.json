@@ -6,18 +6,12 @@
             "student_username": "john-smith-2003",
             "student_password": "abc123",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
-            "completedCourses": [
-                {
-                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca626",
-                    "finalGrade": 85
-                },
-                {
-                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca625",
-                    "finalGrade": 92
-                }
+            "completedCourses" : ["CSCE101","CSCE240"],
+            "enrolledClasses":
+            [
+                "CLIM101"
             ],
-            "enrolledClasses": ["dbbe9692-d811-4230-90bb-d0197a2ca632","dbbe9692-d811-4230-90bb-d0197a2ca633","dbbe9692-d811-4230-90bb-d0197a2ca634"],
-            "outstandingReq": ["dbbe9692-d811-4230-90bb-d0197a2ca631"],
+            "outstandingReq": ["MATH147"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
         }
     },
@@ -28,19 +22,12 @@
             "student_username": "jane",
             "student_password": "jane",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
-            "completedCourses": [
-                {
-                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca626",
-                    "finalGrade": 85
-                },
-                {
-                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca625",
-                    "finalGrade": 92
-                }
+            "completedCourses" : ["CSCE101","CSCE240"],
+            "enrolledClasses":
+            [
+                "CLIM101"
             ],
-            
-            "enrolledClasses": ["dbbe9692-d811-4230-90bb-d0197a2ca638","dbbe9692-d811-4230-90bb-d0197a2ca639","dbbe9692-d811-4230-90bb-d0197a2ca640"],
-            "outstandingReq": ["dbbe9692-d811-4230-90bb-d0197a2ca641"],
+            "outstandingReq": ["MATH147"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
         }
     }

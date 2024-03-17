@@ -1,38 +1,28 @@
 package DegreeEZ;
 
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Prerequisite {
-    private UUID courseID;
-    private int minGrade;
+    private ArrayList<Course> courses;
 
-    public Prerequisite(UUID courseID, int minGrade) {
-        this.courseID = courseID;
-        this.minGrade = minGrade;
+    public Prerequisite() {
+        courses = new ArrayList<Course>();
     }
 
     public String toString() {
-        Course course = CourseList.getCourseByUUID(courseID);
-        if (course != null) {
-            return course.courseCode() + " (Min Grade: " + minGrade + ")";
-        } else {
-            return "Unknown Course ID: " + courseID.toString() + " (Min Grade: " + minGrade + ")";
+        StringBuilder result = new StringBuilder();
+        Iterator<Course> it = courses.iterator();
+        while (it.hasNext()) {
+            result.append(it.next().getName());
+            if (it.hasNext()) {
+                result.append(" or ");
+            }
         }
+        return result.toString();
     }
 
-    public UUID getCourseID() {
-        return courseID;
-    }
-
-    public void setCourseID(UUID courseID) {
-        this.courseID = courseID;
-    }
-
-    public int getMinGrade() {
-        return minGrade;
-    }
-
-    public void setMinGrade(int minGrade) {
-        this.minGrade = minGrade;
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 }

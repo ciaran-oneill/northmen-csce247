@@ -54,17 +54,4 @@ public class CourseList {
         return null;
     }
 
-    public static synchronized ArrayList<Course> getCoursesByUUIDs(ArrayList<UUID> uuids) {
-        ArrayList<Course> matchedCourses = new ArrayList<>();
-        for (UUID uuid : uuids) {
-            for (Course course : getCourses()) {
-                if (course.getId().equals(uuid)) {
-                    matchedCourses.add(course);
-                    break; // Assuming UUIDs are unique, we can break after finding a match
-                }
-            }
-        }
-        return matchedCourses;
-    }
-
 }
