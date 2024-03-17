@@ -28,7 +28,7 @@ public class DataWriter {
                     "        }\n" +
                     "    }%s",
                     student.getUUID().toString(), student.getFirstName(), student.getLastName(),
-                    student.getUserName(), student.getPassword(), student.getMajorUuid().toString(),
+                    student.getUserName(), student.getPassword(), student.getMajor().getMajorID().toString(),
                     formatCoursesList(student.getEnrolledClasses()), formatCoursesList(student.getOutstandingRequirements()),
                     student.getAdvisorUuid().toString(), (i < students.size() - 1) ? "," : "");
                 writer.write(studentJson);

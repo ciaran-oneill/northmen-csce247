@@ -4,42 +4,54 @@ import java.util.UUID;
 
 public class DegreeWorksApplication {
     private User user;
-    private CourseList courseList;
-    private UserList userList;
-    private ArrayList<User> users;
 
     public DegreeWorksApplication() {
-        this.users = new ArrayList<>();
+    }
+
+    private ArrayList<User> getAllUsers() {
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.addAll(AdvisorList.getAdvisors());
+        userList.addAll(StudentList.getStudents());
+        return userList;
     }
 
     public User login(String username, String password) {
-        for (User user : users) {
+        ArrayList<User> userList = getAllUsers();
+        for (User user : userList) {
             if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
-                return user; // Login successful
+                this.user = user;
+                return user;
             }
         }
-        return null; // Login failed
+        return null;
     }
 
-    public boolean createAccount(boolean isAdvisor, String firstName, String lastName, String username, String password, String major) {
-        if (users.stream().anyMatch(user -> user.getUserName().equals(username))) {
-            return false; // Username already exists
+    public void logout() {
+        this.user = null;
+    }
+
+    public User createAccount(boolean isAdvisor, String firstName, String lastName, String username, String password, Major major) {
+        ArrayList<User> userList = getAllUsers();
+        if (userList.stream().anyMatch(user -> user.getUserName().equals(username))) {
+            System.err.printf("Username %s already exists!%n", username);
+            return null;
         }
-        
         UUID uuid = UUID.randomUUID();
         User newUser;
         if (!isAdvisor) {
-            newUser = new Student(uuid, firstName, lastName, username, password, UUID , new ArrayList<CompletedCourse>(), new ArrayList<Course>(), null);
-            userList.addUser(newUser);
-        } else if (isAdvisor) {
+            newUser = new Student(uuid, firstName, lastName, username, password, major.getMajorID(), new ArrayList<CompletedCourse>(), new ArrayList<Course>(), new ArrayList<Course>(), null);
+            userList.add(newUser);
+        } else{
             newUser = new Advisor(uuid, firstName, lastName, username, password, new ArrayList<>());
-            userList.addUser(newUser);
-        } else {
-            return false; // Invalid user type
+            userList.add(newUser);
         }
         
-        users.add(newUser);
-        return true; // Account creation successful
+        userList.add(newUser);
+        return newUser;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
 

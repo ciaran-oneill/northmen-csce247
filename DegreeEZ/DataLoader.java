@@ -1,226 +1,186 @@
 package DegreeEZ;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 class DataLoader {
-
-    public static ArrayList<User> loadUsers(String studentsFilePath, String advisorsFilePath) {
-        ArrayList<User> users = new ArrayList<>();
-        users.addAll(loadStudents(studentsFilePath));
-        users.addAll(loadAdvisors(advisorsFilePath));
-        return users;
-    }
-    
-
     public static ArrayList<Student> loadStudents(String filePath) {
+        String jsonString = readFileAsString(filePath);
+        if (jsonString == null) {
+            return null;
+        }
+        JSONArray jsonArray = new JSONArray(jsonString);
         ArrayList<Student> students = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{")) {
-                    UUID uuid = UUID.fromString(line.substring(line.indexOf("\"") + 1, line.indexOf("\"", line.indexOf("\"") + 1)));
-                    String firstName = "", lastName = "", username = "", password = "";
-                    UUID major = null;
-                    ArrayList<CompletedCourse> completedCourses = new ArrayList<CompletedCourse>();
-                    ArrayList<Course> enrolledClasses = new ArrayList<Course>();
-                    ArrayList<Course> outstandingReq = new ArrayList<Course>();
-                    UUID advisor = null;
 
-                    while (!(line = reader.readLine().trim()).equals("}")) {
-                        if (line.contains("student_firstName")) firstName = extractValue(line);
-                        else if (line.contains("student_lastName")) lastName = extractValue(line);
-                        else if (line.contains("student_username")) username = extractValue(line);
-                        else if (line.contains("student_password")) password = extractValue(line);
-                        else if (line.contains("student_major")) major = UUID.fromString(extractValue(line));
-                        else if (line.trim().startsWith("\"completedCourses\"")) completedCourses = parseCompletedCoursesArray(reader);
-                        else if (line.trim().startsWith("\"enrolledClasses\"")) enrolledClasses = parseCoursesArray(reader);
-                        else if (line.trim().startsWith("\"outstandingReq\"")) outstandingReq = parseCoursesArray(reader);
-                        else if (line.contains("advisor")) advisor = UUID.fromString(extractValue(line).replaceAll("[{},]", "").trim());
-                    }
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject studentJSON = jsonArray.getJSONObject(i);
+            String UUIDString = (String) studentJSON.keys().next();
+            UUID uuid = UUID.fromString(UUIDString);
+            JSONObject studentDetails = studentJSON.getJSONObject(UUIDString);
 
-                    students.add(new Student(uuid, firstName, lastName, username, password, major, completedCourses, enrolledClasses, outstandingReq, advisor));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            String firstName = studentDetails.getString("student_firstName");
+            String lastName = studentDetails.getString("student_lastName");
+            String username = studentDetails.getString("student_username");
+            String password = studentDetails.getString("student_password");
+            UUID majorUUID = UUID.fromString(studentDetails.getString("student_major"));
+            ArrayList<CompletedCourse> completedCourses = loadCompletedCoursesFromJSONArray(studentDetails.getJSONArray("completedCourses"));
+            ArrayList<Course> enrolledCourses = loadCoursesFromJSONArray(studentDetails.getJSONArray("enrolledClasses"));
+            ArrayList<Course> outstandingReqs = loadCoursesFromJSONArray(studentDetails.getJSONArray("outstandingReq"));
+            UUID advisorUUID = UUID.fromString(studentDetails.getString("advisor"));
+
+            students.add(new Student(uuid, firstName, lastName, username, password, majorUUID, completedCourses, enrolledCourses, outstandingReqs, advisorUUID));
         }
         return students;
     }
 
     public static ArrayList<Advisor> loadAdvisors(String filePath) {
-        ArrayList<Advisor> advisors = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{")) {
-                    UUID uuid = UUID.fromString(line.substring(line.indexOf("\"") + 1, line.indexOf("\"", line.indexOf("\"") + 1)));
-                    String firstName = "", lastName = "", username = "", password = "";
-                    ArrayList<UUID> studentUuids = new ArrayList<>();
-    
-                    while (!(line = reader.readLine().trim()).equals("}")) {
-                        if (line.contains("advisor_firstName")) firstName = extractValue(line);
-                        else if (line.contains("advisor_lastName")) lastName = extractValue(line);
-                        else if (line.contains("advisor_username")) username = extractValue(line);
-                        else if (line.contains("advisor_password")) password = extractValue(line);
-                        else if (line.trim().startsWith("\"advisor_students\"")) studentUuids = parseUUIDArray(reader); 
-                    }
-    
-                    advisors.add(new Advisor(uuid, username, firstName, lastName, password, studentUuids));
-                }
+        String jsonString = readFileAsString(filePath);
+        if (jsonString == null) {
+            return null;
+        }
+        JSONArray advisorsJSONArray = new JSONArray(jsonString);
+        ArrayList<Advisor> advisors = new ArrayList<Advisor>();
+
+        for (int i = 0; i < advisorsJSONArray.length(); i++) {
+            JSONObject jsonObject = advisorsJSONArray.getJSONObject(i);
+            String UUIDString = (String) jsonObject.keys().next();
+            JSONObject advisorJson = jsonObject.getJSONObject(UUIDString);
+            UUID uuid = UUID.fromString(UUIDString);
+            String firstName = advisorJson.getString("advisor_firstName");
+            String lastName = advisorJson.getString("advisor_lastName");
+            String username = advisorJson.getString("advisor_username");
+            String password = advisorJson.getString("advisor_password");
+            JSONArray studentIdsJSON = advisorJson.getJSONArray("advisor_students");
+            ArrayList<UUID> studentIDs = new ArrayList<>();
+            for (int j = 0; j < studentIdsJSON.length(); j++) {
+                studentIDs.add(UUID.fromString(studentIdsJSON.getString(j)));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            advisors.add(new Advisor(uuid, username, firstName, lastName, password, studentIDs));
         }
         return advisors;
     }
 
-    public static ArrayList<Major> loadMajors(String filePath) {
+    public static ArrayList<Major> loadMajors(String fileName) {
+        String jsonString = readFileAsString(fileName);
+        if (jsonString == null) {
+            return null;
+        }
+        JSONArray majorsJSONArray = new JSONArray(jsonString);
         ArrayList<Major> majors = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{")) {
-                    UUID majorId = UUID.fromString(line.substring(line.indexOf("\"") + 1, line.indexOf("\"", line.indexOf("\"") + 1)));
-                    String majorName = "";
-                    ArrayList<Course> requiredCourses = new ArrayList<>();
-                    ArrayList<HashMap<String, Electives>> electiveCats = new ArrayList<HashMap<String,Electives>>();
-    
-                    while (!(line = reader.readLine().trim()).equals("}")) {
-                        if (line.contains("major_name")) majorName = extractValue(line);
-                        // Placeholder for parsing required courses array
-                        else if (line.trim().startsWith("\"requiredClasses\"")) requiredCourses = parseCoursesArray(reader); 
-                        // Placeholder for parsing elective categories; implement based on actual structure
-                        else if (line.trim().startsWith("\"electiveCats\"")) electiveCats = parseElectiveCats(reader); 
-                    }
-    
-                    majors.add(new Major(majorId, majorName, requiredCourses, electiveCats));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        for (int i = 0; i < majorsJSONArray.length(); i++) {
+            JSONObject jsonObject = majorsJSONArray.getJSONObject(i);
+            String UUIDString = (String) jsonObject.keys().next();
+            JSONObject majorJson = jsonObject.getJSONObject(UUIDString);
+            UUID uuid = UUID.fromString(UUIDString);
+            String majorName = majorJson.getString("major_name");
+            int electiveCreditsRequired = majorJson.getInt("electiveCreditsRequired");
+            ArrayList<Course> requiredClasses = loadCoursesFromJSONArray(majorJson.getJSONArray("requiredClasses"));
+            ArrayList<Course> electiveOptions = loadCoursesFromJSONArray(majorJson.getJSONArray("electiveOptions"));
+            majors.add(new Major(uuid, majorName, requiredClasses, electiveCreditsRequired, electiveOptions));
         }
         return majors;
     }
 
-    public static ArrayList<Course> loadCourses(String filePath) {
-        ArrayList<Course> courses = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("\"")) { // Start of a new course entry
-                    UUID id = UUID.fromString(line.trim().split("\"")[1]); // Extracting UUID
-                    reader.readLine(); // Move past '{'
-                    String name = "";
-                    Subject subject = null;
-                    int number = 0;
-                    int minGrade = 0;
-                    ArrayList<HashMap<Course,String>> prerequisites = new ArrayList<HashMap<Course,String>>();
-                    ArrayList<Semester> availability = new ArrayList<>();
-                    int creditHours = 0;
+    public static ArrayList<Course> loadCourses(String fileName) {
+        String jsonString = readFileAsString(fileName);
+        if (jsonString == null) {
+            return null;
+        }
+        JSONArray coursesJSONArray = new JSONArray(jsonString);
+        ArrayList<Course> courses = new ArrayList<Course>();
 
-                    while (!(line = reader.readLine().trim()).equals("},")) { // Ensure correct closing brace check
-                        if (line.contains("course_name")) name = extractValue(line);
-                        else if (line.contains("course_subject")) subject = Subject.valueOf(extractValue(line));
-                        else if (line.contains("course_number")) number = Integer.parseInt(extractValue(line));
-                        else if (line.contains("minGrade")) minGrade = Integer.parseInt(extractValue(line));
-                        else if (line.trim().startsWith("\"availability\"")) {
-                            availability = parseAvailability(reader.readLine());
-                        }
-                        else if (line.contains("creditHours")) creditHours = Integer.parseInt(extractValue(line));
-                    }
+        for (int i = 0; i < coursesJSONArray.length(); i++) {
+            JSONObject jsonObject = coursesJSONArray.getJSONObject(i);
+            String UUIDString = (String) jsonObject.keys().next();
+            UUID uuid = UUID.fromString(UUIDString);
+            JSONObject courseJSON = jsonObject.getJSONObject(UUIDString);
+            String name = courseJSON.getString("course_name");
+            Subject subject = Subject.valueOf(courseJSON.getString("course_subject"));
+            int number = Integer.parseInt(courseJSON.getString("course_number"));
+            int creditHours = courseJSON.getInt("creditHours");
+            int minGrade = courseJSON.getInt("minGrade");
+            JSONArray availability_json_array = courseJSON.getJSONArray("availability");
+            ArrayList<Semester> availability = new ArrayList<Semester>();
 
-                    // Adjust constructor to take parsed UUID
-                    Course course = new Course(id, name, subject, number, prerequisites, minGrade, availability, creditHours);
-                    courses.add(course);
-                }
+            for (int j = 0; j < availability_json_array.length(); j++) {
+                availability.add(Semester.valueOf(availability_json_array.getString(j).toUpperCase()));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            courses.add(new Course(uuid, name, subject, number, minGrade, availability, creditHours));
+        }
+
+        /* Second loop to load prerequisites */
+        for (int i = 0; i < coursesJSONArray.length(); i++) {
+            JSONObject jo = coursesJSONArray.getJSONObject(i);
+            JSONObject courseJSON = jo.getJSONObject((String) jo.keys().next());
+            JSONArray prerequisites_json_array = courseJSON.getJSONArray("course_prereq");
+            for (int j = 0; j < prerequisites_json_array.length(); j++) {
+                Prerequisite prerequisite = new Prerequisite();
+                String prerequisite_string = prerequisites_json_array.getString(j);
+                String[] codes = prerequisite_string.split(" or ");
+                for (String code : codes) {
+                    Course c = getCourseFromCode(courses, code);
+                    prerequisite.getCourses().add(c);
+                }
+                courses.get(i).getPrerequisites().add(prerequisite);
+            }
         }
         return courses;
     }
 
-    private static ArrayList<Semester> parseAvailability(String line) {
-        ArrayList<Semester> availability = new ArrayList<>();
-        // Assuming the availability array is always on a single line
-        String[] parts = line.trim().split("\\[")[1].split("]")[0].split(",");
-        for (String part : parts) {
-            String semesterStr = part.trim().replaceAll("\"", "").toUpperCase();
-            try {
-                Semester semester = Semester.valueOf(semesterStr);
-                availability.add(semester);
-            } catch (IllegalArgumentException e) {
-                System.err.println("Invalid semester value: " + semesterStr);
-                // Handle the error or skip the invalid semester
+    private static String readFileAsString(String filePath){
+        try {
+            return Files.readString(Paths.get(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static ArrayList<Course> loadCoursesFromJSONArray(JSONArray arr) {
+        ArrayList<Course> courses = new ArrayList<Course>();
+        for (int i = 0; i < arr.length(); i++) {
+            String code = arr.getString(i);
+            Course c = CourseList.getCourseByCode(code);
+            courses.add(c);
+        }
+        return courses;
+
+    }
+
+    private static ArrayList<CompletedCourse> loadCompletedCoursesFromJSONArray(JSONArray arr) {
+        ArrayList<CompletedCourse> courses = new ArrayList<CompletedCourse>();
+        for (int i = 0; i < arr.length(); i++) {
+            String code = arr.getString(i);
+            Course c = CourseList.getCourseByCode(code);
+            if (c == null) {
+                continue;
+            }
+            CompletedCourse cc = new CompletedCourse(c.getId(), 0);
+            courses.add(cc);
+        }
+        return courses;
+
+    }
+
+    private static Course getCourseFromCode(ArrayList<Course> courses, String code) {
+        for (Course c : courses) {
+            if (c.courseCode().equalsIgnoreCase(code.trim())) {
+                return c;
             }
         }
-        return availability;
-    }
-    
-
-    private static ArrayList<HashMap<String, Electives>> parseElectiveCats(BufferedReader reader) {
-       // to be implemented
-        return new ArrayList<HashMap<String, Electives>>();
-    }
-    
-    
-
-    private static ArrayList<UUID> parseUUIDArray(BufferedReader reader) {
-        // to be implemented
-        return new ArrayList<>();
+        return null;
     }
 
 
-    private static ArrayList<Course> parseCoursesArray(BufferedReader reader) {
-        // to be implemented
-        return new ArrayList<>();
     }
-
-    private static ArrayList<CompletedCourse> parseCompletedCoursesArray(BufferedReader reader) throws Exception {
-        ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
-        String line = reader.readLine().trim(); // Assuming the next line is the start of the array
-        if (!line.startsWith("[")) {
-            throw new IllegalArgumentException("Expected array start '[' but found: " + line);
-        }
-        while (!(line = reader.readLine().trim()).equals("]")) { // Until the end of the array
-            if (line.startsWith("{")) {
-                UUID courseId = null;
-                String name = "";
-                Subject subject = null;
-                int number = 0;
-                ArrayList<HashMap<Course, String>> prerequisites = new ArrayList<>(); // Simplified handling of prerequisites
-                int minGrade = 0;
-                int creditHours = 0;
-                int finalGrade = 0;
-                Semester semesterTaken = null;
-                boolean pass = false;
-
-                while (!(line = reader.readLine().trim()).equals("}")) {
-                    if (line.contains("courseId")) courseId = UUID.fromString(extractValue(line));
-                    else if (line.contains("\"name\"")) name = extractValue(line);
-                    else if (line.contains("\"subject\"")) subject = Subject.valueOf(extractValue(line).toUpperCase());
-                    else if (line.contains("\"number\"")) number = Integer.parseInt(extractValue(line));
-                    // Assuming prerequisites are simplified and not parsed here for brevity
-                    else if (line.contains("\"minGrade\"")) minGrade = Integer.parseInt(extractValue(line));
-                    else if (line.contains("\"creditHours\"")) creditHours = Integer.parseInt(extractValue(line));
-                    else if (line.contains("\"finalGrade\"")) finalGrade = Integer.parseInt(extractValue(line));
-                    else if (line.contains("\"semesterTaken\"")) semesterTaken = Semester.valueOf(extractValue(line).toUpperCase());
-                    else if (line.contains("\"pass\"")) pass = Boolean.parseBoolean(extractValue(line));
-                }
-
-                completedCourses.add(new CompletedCourse(courseId, name, subject, number, prerequisites, minGrade, creditHours, finalGrade, semesterTaken, pass));
-            }
-        }
-        return completedCourses;
-    }
-    
-    // Extracts a String value from a line in the JSON file
-    private static String extractValue(String line) {
-        return line.substring(line.indexOf(":") + 1).replaceAll("\"", "").trim();
-    }
-}

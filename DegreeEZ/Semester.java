@@ -1,6 +1,6 @@
 package DegreeEZ;
 
-enum Semester {
+public enum Semester {
     FALL,
     SPRING,
     SUMMER

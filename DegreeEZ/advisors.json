@@ -1,38 +1,20 @@
 [
     {
         "72a5236a-2c6d-4002-bf16-ff0174b0e243": {
-            "advisor_firstName": "Osbert",
-            "advisor_lastName": "Odden",
-            "advisor_username": "osbert-odden-1974",
+            "advisor_firstName": "Kelly",
+            "advisor_lastName": "Johnson",
+            "advisor_username": "kelly-johnson-1974",
             "advisor_password": "password",
-            "advisor_students": ["97372bf4-24d2-4f70-968c-12898596277e2"]
+            "advisor_students": ["97372bf4-24d2-4f70-968c-12898596277e"]
         }
     },
     {
-        "5507cbf5-0181-4fef-99fb-906f43d89304": {
-            "advisor_firstName": "Annalise",
-            "advisor_lastName": "Song",
-            "advisor_username": "Annalise-Song-1972",
-            "advisor_password": "password2",
-            "advisor_students": ["858c93a3-d098-4458-b141-e8736696020a1"]
-        }
-    },
-    {
-        "05947f73-cb2f-4d3d-9eeb-0684e2fc4822": {
-            "advisor_firstName": "Wilkinson",
-            "advisor_lastName": "Fan",
-            "advisor_username": "Wilkinson-Fan-1968",
-            "advisor_password": "password3",
-            "advisor_students": ["eec07ce4-52ef-4574-b1e0-a47a9127514e"]
-        }
-    },
-    {
-        "66e54733-967d-4dca-bf10-253dec64f404": {
-            "advisor_firstName": "Maria",
-            "advisor_lastName": "Wilmot",
-            "advisor_username": "Maria-Wilmot-1968",
-            "advisor_password": "password4",
-            "advisor_students": ["eec07ce4-52ef-4574-b1e0-a47a9127514e"]
+        "72a5236a-2c6d-4002-bf16-ff0174b0e241": {
+            "advisor_firstName": "admin",
+            "advisor_lastName": "test",
+            "advisor_username": "admin",
+            "advisor_password": "admin",
+            "advisor_students": ["97372bf4-24d2-4f70-968c-12898596277e"]
         }
     }
 ]

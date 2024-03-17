@@ -3,51 +3,38 @@ package DegreeEZ;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class Course {
-    private static final Map<UUID, Course> COURSE_REGISTRY = new HashMap<>();
-
     private UUID id;
     private Subject subject;
     private int number;
     private String name;
-    private ArrayList<HashMap<Course, String>> prerequisites; // each Course can have multiple prerequisites with specific min grades
+    private ArrayList<Prerequisite> prerequisites;
     private int minGrade;
     private List<Semester> availability; 
     private int creditHours;
 
     // Constructor
-    public Course(UUID id, String name, Subject subject, int number, ArrayList<HashMap<Course,String>> prerequisites, int minGrade, ArrayList<Semester> availability, int creditHours) {
-
+    public Course(UUID id, String name, Subject subject, int number, int minGrade, ArrayList<Semester> availability, int creditHours) {
         this.id = UUID.randomUUID(); // Generate a unique ID for each course
+        this.name = name;
         this.subject = subject;
         this.number = number;
-        this.name = name;
         this.minGrade = minGrade;
-        this.prerequisites = new ArrayList<>();
-        this.availability = new ArrayList<>();
-        registerCourse(this);
+        this.availability = availability;
+        this.creditHours = creditHours;
+
+        this.prerequisites = new ArrayList<Prerequisite>();
     }
-
-   private static void registerCourse(Course course) {
-    COURSE_REGISTRY.put(course.getId(), course);
-   }
-
-   /**
- * @param id
- * @return Course
- */
-public static Course getCourseById(UUID id) {
-    return COURSE_REGISTRY.get(id);
-   }
-
-   private 
 
     // Getters and setters
     public UUID getId() {
         return id;
+    }
+
+    public ArrayList<Prerequisite> getPrerequisites() {
+        return prerequisites;
     }
 
     public Subject getSubject() {
@@ -98,13 +85,23 @@ public static Course getCourseById(UUID id) {
         this.availability = availability;
     }
 
-    public void addPrerequisite(Course prerequisite, String grade) {
-        HashMap<Course, String> prerequisiteMap = new HashMap<>();
-        prerequisiteMap.put(prerequisite, grade);
-        this.prerequisites.add(prerequisiteMap);
-    }
-
     public boolean checkAvailability(Semester semester) {
         return this.availability.contains(semester);
+    }
+
+    public String toString() {
+        return name;
+    }
+
+    public String courseCode() {
+        return subject.toString() + number;
+    }
+
+    public boolean prerequisitesSatisfied(ArrayList<CompletedCourse> completedCourses) {
+        ArrayList<Prerequisite> temp_prereqs = (ArrayList<Prerequisite>) prerequisites.clone();
+        for (CompletedCourse cc : completedCourses) {
+            temp_prereqs.removeIf(p -> p.getCourses().contains(cc.getCourse()));
+        }
+        return temp_prereqs.size() == 0;
     }
 }

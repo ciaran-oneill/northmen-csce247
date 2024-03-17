@@ -1,10 +1,43 @@
 [
     {
+        "dbbe9692-d811-4230-90bb-d0197a2ca624": {
+            "course_name": "Climate and our community",
+            "course_subject": "CLIM",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    },
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca623": {
+            "course_name": "PreCalculus",
+            "course_subject": "MATH",
+            "course_number": "147",
+            "course_prereq": [],
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    },
+    {
+        "dbbe9692-d811-4230-90bb-d0197a2ca622": {
+            "course_name": "Intro to Java",
+            "course_subject": "CS",
+            "course_number": "101",
+            "course_prereq": [],
+            "creditHours": 4,
+            "minGrade": 0,
+            "availability": ["Summer","Fall","Spring"]
+        }
+    },
+    {
         "dbbe9692-d811-4230-90bb-d0197a2ca621": {
             "course_name": "Algebra I",
             "course_subject": "MATH",
             "course_number": "141",
-            "course_prereq": {"courseId": "dbbe9692-d811-4230-90bb-d0197a2ca622", "minGrade:": "75"},
+            "course_prereq": [],
             "creditHours": 4,
             "minGrade": 0,
             "availability": ["Summer","Fall","Spring"]
@@ -426,42 +459,6 @@
             "course_subject": "ENGL",
             "carolina_core": "VSR",
             "course_number": "280",
-            "course_prereq": [],
-            "creditHours": 3,
-            "minGrade": 0,
-            "availability": ["Summer","Fall","Spring"]
-        }
-    },
-    {
-        "b41477f7-aa1c-43e3-bf48-772290e20f9c": {
-            "course_name": "Intro to Russian History",
-            "course_subject": "RUSS",
-            "carolina_core": "VSR",
-            "course_number": "140",
-            "course_prereq": [],
-            "creditHours": 3,
-            "minGrade": 0,
-            "availability": ["Summer","Fall","Spring"]
-        }
-    },
-    {
-        "b41477f7-aa1c-43e3-bf48-772290e20f9c": {
-            "course_name": "Western Art history 18th century",
-            "course_subject": "ARTH",
-            "carolina_core": "VSR",
-            "course_number": "158",
-            "course_prereq": [],
-            "creditHours": 3,
-            "minGrade": 0,
-            "availability": ["Summer","Fall","Spring"]
-        }
-    },
-    {
-        "b41477f7-aa1c-43e3-bf48-772290e20f9c": {
-            "course_name": "Western Art history 19th century",
-            "course_subject": "ARTH",
-            "carolina_core": "VSR",
-            "course_number": "159",
             "course_prereq": [],
             "creditHours": 3,
             "minGrade": 0,

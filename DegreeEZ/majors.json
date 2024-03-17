@@ -2,9 +2,9 @@
     {
         "27212152-de50-4c17-ad9b-6303d934cf80": {
         "major_name": "Computer Science",
-        "requiredClasses": ["CS101","MATH141","MATH147"],
+        "requiredClasses": ["CSCE101","CSCE240","MATH147"],
         "electiveCreditsRequired": "8",
-        "electiveOptions": ["CLIM101","ANTH102","SPAN101"]
+        "electiveOptions":["CLIM101"]
         }
 
     }

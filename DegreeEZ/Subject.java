@@ -1,6 +1,6 @@
 package DegreeEZ;
 
-enum Subject {
+public enum Subject {
     MATH,
     ECON,
     CSCE,
@@ -8,5 +8,17 @@ enum Subject {
     HIST,
     ANTH,
     SCIENCE,
-    PSYCH
+    PSYCH,
+    ENGL,
+    ARTE,
+    PHIL,
+    ASTR,
+    STAT,
+    SPCH,
+    FREN,
+    LATIN,
+    FAMS,
+    BIOL,
+    CLIM,
+    CS
 }
