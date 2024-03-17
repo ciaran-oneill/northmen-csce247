@@ -1,40 +1,47 @@
 [
-    
-        {
-        "uuid": "97372bf4-24d2-4f70-968c-12898596277e", 
+    {
+        "97372bf4-24d2-4f70-968c-12898596277e": {
             "student_firstName": "John",
             "student_lastName": "Smith",
             "student_username": "john-smith-2003",
             "student_password": "abc123",
             "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
-            "completedCourses" : ["CSCE141"],
-            "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
-            "outstandingReq": ["CSCE322"],
+            "completedCourses": [
+                {
+                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca626",
+                    "finalGrade": 85
+                },
+                {
+                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca625",
+                    "finalGrade": 92
+                }
+            ],
+            "enrolledClasses": ["dbbe9692-d811-4230-90bb-d0197a2ca632","dbbe9692-d811-4230-90bb-d0197a2ca633","dbbe9692-d811-4230-90bb-d0197a2ca634"],
+            "outstandingReq": ["dbbe9692-d811-4230-90bb-d0197a2ca631"],
             "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
-        },
-        {
-         "uuid": "97372bf4-24d2-4f70-968c-12898596277e1",
-         "student_firstName": "Brax",
-         "student_lastName": "West",
-         "student_username": "brax-west-2005",
-         "student_password": "password",
-         "student_major": "Comupter Science",
-         "enrolledClasses": ["CSCE242"],
-         "completedCourses": ["CSCE141"],
-         "outstandingReq" : ["GFL"],
-         "advisor": "Osbert Odden"
-        },
-        {
-        "uuid": "97372bf4-24d2-4f70-968c-12898596277e2", 
-            "student_firstName": "Tawnie",
-            "student_lastName": "Hill",
-            "student_username": "tawnie-hill-2003",
-            "student_password": "abc12345",
-            "student_major": "Computer Information System",
-            "completedCourses" : ["CSCE141"],
-            "enrolledClasses": ["CSCE242", "MATH174", "ECON224"],
-            "outstandingReq": ["CSCE322"],
-            "advisor": "2a5236a-2c6d-4002-bf16-ff0174b0e243"
         }
-    
+    },
+    {
+        "97372bf4-24d2-4f70-968c-12898596277e": {
+            "student_firstName": "jane",
+            "student_lastName": "Smith",
+            "student_username": "jane",
+            "student_password": "jane",
+            "student_major": "27212152-de50-4c17-ad9b-6303d934cf80",
+            "completedCourses": [
+                {
+                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca626",
+                    "finalGrade": 85
+                },
+                {
+                    "courseId": "dbbe9692-d811-4230-90bb-d0197a2ca625",
+                    "finalGrade": 92
+                }
+            ],
+            
+            "enrolledClasses": ["dbbe9692-d811-4230-90bb-d0197a2ca638","dbbe9692-d811-4230-90bb-d0197a2ca639","dbbe9692-d811-4230-90bb-d0197a2ca640"],
+            "outstandingReq": ["dbbe9692-d811-4230-90bb-d0197a2ca641"],
+            "advisor": "72a5236a-2c6d-4002-bf16-ff0174b0e243"
+        }
+    }
 ]

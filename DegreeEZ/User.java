@@ -36,5 +36,9 @@ public  abstract class User {
         public String getUserName() {
             return userName;
         }
+
+        public boolean isAdvisor() {
+            return this instanceof Advisor;
+        }
     }
 

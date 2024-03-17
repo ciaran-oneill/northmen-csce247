@@ -4,44 +4,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class CompletedCourse extends Course {
-    private int finalGrade;
-    private Semester semesterTaken;
-    private boolean pass;
+public class CompletedCourse{
+    private int grade;
+    private Course course = null;
 
-    public CompletedCourse(UUID id, String name, Subject subject, int number, 
-                           ArrayList<HashMap<Course, String>> prerequisites, 
-                           int minGrade, int creditHours, int finalGrade, 
-                           Semester semesterTaken, boolean pass) {
-        super(id, name, subject, number, prerequisites, minGrade, new ArrayList<>(), creditHours);
-        
-        this.finalGrade = finalGrade;
-        this.semesterTaken = semesterTaken;
-        this.pass = pass;
+    public CompletedCourse(UUID courseID, int grade) {
+        for (Course c : CourseList.getCourses()) {
+            if (c.getId().equals(courseID)) {
+                course = c;
+            }
+        }
+        if (course == null) {
+            System.err.println("Warning: Could not find a course matching ID " + courseID);
+        }
+        this.grade = grade;
     }
 
     // Getters and setters for the new fields
-    public int getFinalGrade() {
-        return finalGrade;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setFinalGrade(int finalGrade) {
-        this.finalGrade = finalGrade;
+    public Course getCourse() {
+        return course;
     }
 
-    public Semester getSemesterTaken() {
-        return semesterTaken;
+    public String toString() {
+        return course.toString() + " Grade: " + grade;
     }
 
-    public void setSemesterTaken(Semester semesterTaken) {
-        this.semesterTaken = semesterTaken;
-    }
-
-    public boolean isPass() {
-        return pass;
-    }
-
-    public void setPass(boolean pass) {
-        this.pass = pass;
-    }
 }
