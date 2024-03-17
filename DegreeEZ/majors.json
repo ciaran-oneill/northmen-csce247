@@ -1,11 +1,16 @@
 [
     {
-        "27212152-de50-4c17-ad9b-6303d934cf80": {
+        "major_id": "27212152-de50-4c17-ad9b-6303d934cf80",
         "major_name": "Computer Science",
-        "requiredClasses": ["CSCE101","CSCE240","MATH147"],
+        "requiredClasses": ["dbbe9692-d811-4230-90bb-d0197a2ca623","dbbe9692-d811-4230-90bb-d0197a2ca622","dbbe9692-d811-4230-90bb-d0197a2ca621","dbbe9692-d811-4230-90bb-d0197a2ca622","dbbe9692-d811-4230-90bb-d0197a2ca623","dbbe9692-d811-4230-90bb-d0197a2ca624"],
         "electiveCreditsRequired": "8",
-        "electiveOptions":["CLIM101"]
-        }
-
+        "electiveOptions":["dbbe9692-d811-4230-90bb-d0197a2ce706","dbbe9692-d811-4230-90bb-d0197a2ce705","dbbe9692-d811-4230-90bb-d0197a2ce704"]
+    },
+    {
+        "major_id": "27212152-de50-4c17-ad9b-6303d934cf81",
+        "major_name": "Biology",
+        "requiredClasses": ["dbbe9692-d811-4230-90bb-d0197a2cb609","dbbe9692-d811-4230-90bb-d0197a2cb610","dbbe9692-d811-4230-90bb-d0197a2cb607"],
+        "electiveCreditsRequired":"6",
+        "electiveOptions":["dbbe9692-d811-4230-90bb-d0197a2ce710","dbbe9692-d811-4230-90bb-d0197a2ce709","dbbe9692-d811-4230-90bb-d0197a2ce707"]
     }
 ]

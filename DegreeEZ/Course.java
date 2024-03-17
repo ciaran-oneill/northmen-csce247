@@ -89,12 +89,4 @@ public class Course {
     public String courseCode() {
         return subject.toString() + number;
     }
-
-    public boolean prerequisitesSatisfied(ArrayList<CompletedCourse> completedCourses) {
-        ArrayList<Prerequisite> temp_prereqs = (ArrayList<Prerequisite>) prerequisites.clone();
-        for (CompletedCourse cc : completedCourses) {
-            temp_prereqs.removeIf(p -> p.getCourses().contains(cc.getCourse()));
-        }
-        return temp_prereqs.size() == 0;
-    }
 }

@@ -125,6 +125,43 @@ class DataLoader {
         return courses;
     }
 
+    public static ArrayList<Major> loadMajors(String filePath) {
+        ArrayList<Major> majors = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().startsWith("{")) { // Start of a new major record
+                    UUID majorId = null;
+                    String majorName = "";
+                    ArrayList<Course> requiredClasses = new ArrayList<>();
+                    int electiveCreditsRequired = 0;
+                    ArrayList<Course> electiveOptions = new ArrayList<>();
+    
+                    while (!(line = reader.readLine()).trim().equals("}")) { // End of the major record
+                        if (line.contains("major_id")) {
+                            majorId = UUID.fromString(extractValue(line));
+                        } else if (line.contains("major_name")) {
+                            majorName = extractValue(line);
+                        } else if (line.contains("requiredClasses")) {
+                            ArrayList<UUID> requiredClassUUIDs = extractUUIDs(reader);
+                            requiredClasses = CourseList.getCoursesByUUIDs(requiredClassUUIDs);
+                        } else if (line.contains("electiveCreditsRequired")) {
+                            electiveCreditsRequired = Integer.parseInt(extractValue(line));
+                        } else if (line.contains("electiveOptions")) {
+                            ArrayList<UUID> electiveOptionUUIDs = extractUUIDs(reader);
+                            electiveOptions = CourseList.getCoursesByUUIDs(electiveOptionUUIDs);
+                        }
+                    }
+    
+                    majors.add(new Major(majorId, majorName, requiredClasses, electiveCreditsRequired, electiveOptions));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return majors;
+    }
+
 
     private static ArrayList<Prerequisite> extractPrerequisites(BufferedReader reader) throws Exception {
         ArrayList<Prerequisite> prerequisites = new ArrayList<>();

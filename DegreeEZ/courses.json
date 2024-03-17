@@ -78,10 +78,444 @@
             {
                 "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca623",
                 "minGrade": 75
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca622",
+                "minGrade": 70
             }
         ],
         "creditHours": 3,
         "minGrade": 0,
         "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca620",
+        "course_name": "Advanced Java Concepts",
+        "course_subject": "CS",
+        "course_number": "201",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca622",
+                "minGrade": 80
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca619",
+        "course_name": "Data Structures",
+        "course_subject": "CS",
+        "course_number": "202",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca620",
+                "minGrade": 85
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca618",
+        "course_name": "Discrete Mathematics",
+        "course_subject": "MATH",
+        "course_number": "245",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca623",
+                "minGrade": 80
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca617",
+        "course_name": "Operating Systems",
+        "course_subject": "CS",
+        "course_number": "301",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca619",
+                "minGrade": 85
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca616",
+        "course_name": "Algorithms",
+        "course_subject": "CS",
+        "course_number": "303",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca619",
+                "minGrade": 88
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca618",
+                "minGrade": 75
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca615",
+        "course_name": "Computer Networks",
+        "course_subject": "CS",
+        "course_number": "305",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca617",
+                "minGrade": 80
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca614",
+        "course_name": "Database Systems",
+        "course_subject": "CS",
+        "course_number": "307",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca617",
+                "minGrade": 82
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca613",
+        "course_name": "Software Engineering",
+        "course_subject": "CS",
+        "course_number": "309",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca615",
+                "minGrade": 85
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca612",
+        "course_name": "Web Development",
+        "course_subject": "CS",
+        "course_number": "311",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca622",
+                "minGrade": 80
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca624",
+                "minGrade": 75
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca611",
+        "course_name": "Machine Learning",
+        "course_subject": "CS",
+        "course_number": "401",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca616",
+                "minGrade": 90
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ca610",
+        "course_name": "Artificial Intelligence",
+        "course_subject": "CS",
+        "course_number": "403",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2ca611",
+                "minGrade": 92
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb601",
+        "course_name": "General Biology I",
+        "course_subject": "BIOL",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb602",
+        "course_name": "General Biology II",
+        "course_subject": "BIOL",
+        "course_number": "102",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb601",
+                "minGrade": 75
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb603",
+        "course_name": "Cell Biology",
+        "course_subject": "BIOL",
+        "course_number": "201",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb602",
+                "minGrade": 78
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb604",
+        "course_name": "Genetics",
+        "course_subject": "BIOL",
+        "course_number": "301",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb603",
+                "minGrade": 80
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb605",
+        "course_name": "Ecology",
+        "course_subject": "BIOL",
+        "course_number": "303",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb602",
+                "minGrade": 75
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb606",
+        "course_name": "Molecular Biology",
+        "course_subject": "BIOL",
+        "course_number": "401",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb604",
+                "minGrade": 82
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb607",
+        "course_name": "Biochemistry",
+        "course_subject": "BIOL",
+        "course_number": "405",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb606",
+                "minGrade": 85
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb604",
+                "minGrade": 85
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb608",
+        "course_name": "Immunology",
+        "course_subject": "BIOL",
+        "course_number": "407",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb606",
+                "minGrade": 88
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb609",
+        "course_name": "Evolutionary Biology",
+        "course_subject": "BIOL",
+        "course_number": "411",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb605",
+                "minGrade": 80
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb603",
+                "minGrade": 80
+            }
+        ],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2cb610",
+        "course_name": "Microbiology",
+        "course_subject": "BIOL",
+        "course_number": "415",
+        "course_prereq": [
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb604",
+                "minGrade": 85
+            },
+            {
+                "courseID": "dbbe9692-d811-4230-90bb-d0197a2cb603",
+                "minGrade": 85
+            }
+        ],
+        "creditHours": 4,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce701",
+        "course_name": "Digital Photography",
+        "course_subject": "ART",
+        "course_number": "105",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce702",
+        "course_name": "Introduction to Psychology",
+        "course_subject": "PSYCH",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce703",
+        "course_name": "Creative Writing",
+        "course_subject": "ENGL",
+        "course_number": "204",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce704",
+        "course_name": "Public Speaking",
+        "course_subject": "COMM",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce705",
+        "course_name": "World Religions",
+        "course_subject": "REL",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce706",
+        "course_name": "Introduction to Philosophy",
+        "course_subject": "PHIL",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce707",
+        "course_name": "Basics of Nutrition",
+        "course_subject": "NUTR",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce708",
+        "course_name": "Introduction to Sociology",
+        "course_subject": "SOC",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce709",
+        "course_name": "Personal Finance",
+        "course_subject": "FIN",
+        "course_number": "105",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Fall", "Spring"]
+    },
+    {
+        "course_id": "dbbe9692-d811-4230-90bb-d0197a2ce710",
+        "course_name": "Environmental Science",
+        "course_subject": "ENV",
+        "course_number": "101",
+        "course_prereq": [],
+        "creditHours": 3,
+        "minGrade": 0,
+        "availability": ["Summer", "Fall", "Spring"]
     }
 ]
