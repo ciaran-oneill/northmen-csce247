@@ -32,6 +32,7 @@ public class StudentListTest {
         students.add(new Student(UUID.randomUUID(), "JDoe", "John", "jdoe", "password1", 2, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), null));
         studentList.setStudents(students);
     }
+    
     @AfterEach
     public void tearDown() throws IOException {
         File studentsFile = new File("students.json");
