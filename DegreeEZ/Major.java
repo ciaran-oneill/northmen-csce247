@@ -1,6 +1,8 @@
 package DegreeEZ;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 public class Major {
@@ -65,4 +67,6 @@ public class Major {
     public String toString() {
         return majorName;
     }
+
+    
 }
