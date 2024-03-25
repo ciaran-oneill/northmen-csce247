@@ -1,4 +1,5 @@
 package DegreeEZ;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
@@ -19,9 +20,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+//test for major list
 public class MajorListTest {
-    
-private static MajorList majorList;
+
+    private static MajorList majorList;
 
     @BeforeAll
     public static void setup() throws IOException {
@@ -29,18 +31,19 @@ private static MajorList majorList;
         majorsFile.getParentFile().mkdirs();
         majorsFile.createNewFile();
     }
-/* 
-    @BeforeEach
-    public void init() throws IOException {
-        List<Major> majors = Arrays.asList(
-                new Major(UUID.randomUUID(), "Computer Science", 100),
-                new Major(UUID.randomUUID(), "Mathematics", 50)
-        );
-        DataWriter.writeDataToFile(majors, "majors_test.json");
 
-        majorList = MajorList.getInstance();
-    }
-*/
+    /*
+     * @BeforeEach
+     * public void init() throws IOException {
+     * List<Major> majors = Arrays.asList(
+     * new Major(UUID.randomUUID(), "Computer Science", 100),
+     * new Major(UUID.randomUUID(), "Mathematics", 50)
+     * );
+     * DataWriter.writeDataToFile(majors, "majors_test.json");
+     * 
+     * majorList = MajorList.getInstance();
+     * }
+     */
     @AfterEach
     public void cleanup() {
         File majorsFile = new File("src/test/resources/majors_test.json");
@@ -48,7 +51,7 @@ private static MajorList majorList;
     }
 
     @Test
-public void testGetInstance() {
+    public void testGetInstance() {
         assertNotNull(majorList);
     }
 
@@ -87,4 +90,3 @@ public void testGetInstance() {
         assertEquals(majorList.getMajors().get(1).getMajorID(), majors.get(1).getMajorID());
     }
 }
-

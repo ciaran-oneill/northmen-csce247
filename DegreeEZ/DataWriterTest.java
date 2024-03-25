@@ -16,8 +16,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DataWriterTest {
-    
+//test for datawritertest
 
+public class DataWriterTest {
+
+    @TEST
+    public void testGetInstance() {
+
+    }
 
 }
