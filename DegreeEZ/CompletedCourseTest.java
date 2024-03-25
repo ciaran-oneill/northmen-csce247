@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.UUID;
+
 class CompletedCourseTest {
 
     private Course testCourse;
@@ -12,9 +14,9 @@ class CompletedCourseTest {
     @BeforeEach
     void setUp() {
         // Clearing CourseList and adding a test course
-        CourseList.getInstance().getCourses().clear(); // Assuming this is possible
+        CourseList.getInstance().getCourses().clear(); 
         testCourseId = UUID.randomUUID();
-        testCourse = new Course(testCourseId, "Test Course", Subject.CS, 101, 0, null, 3); // Adjust according to your constructor
+        testCourse = new Course(testCourseId, "Test Course", Subject.CS, 101, 0, null, 3); 
         CourseList.addCourse(testCourse);
     }
 
