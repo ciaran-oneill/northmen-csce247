@@ -47,7 +47,7 @@ public class AdvisorListTest {
     @Test
     public void testGetAdvisorByUUID() {
         Advisor advisor = sampleAdvisors.get(0);
-        advisorList.getAdvisors().add(advisor);
+        AdvisorList.getAdvisors().add(advisor);
 
         Advisor retrievedAdvisor = AdvisorList.getAdvisorByUUID(advisor.getUUID());
         Assertions.assertEquals(advisor, retrievedAdvisor);

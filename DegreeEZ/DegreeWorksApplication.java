@@ -42,7 +42,7 @@ public class DegreeWorksApplication {
             newUser = new Student(uuid, firstName, lastName, username, password, major.getMajorID(), new ArrayList<CompletedCourse>(), new ArrayList<Course>(), new ArrayList<Course>(), null);
             StudentList.getStudents().add((Student) newUser);
         } else{
-            newUser = new Advisor(uuid, firstName, lastName, username, password, new ArrayList<>());
+            newUser = new Advisor(uuid, firstName, lastName, username, password);
             AdvisorList.getAdvisors().add((Advisor) newUser);
         }
         return newUser;

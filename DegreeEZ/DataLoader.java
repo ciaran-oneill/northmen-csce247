@@ -3,13 +3,10 @@ package DegreeEZ;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 class DataLoader {
@@ -64,7 +61,7 @@ class DataLoader {
             for (int j = 0; j < studentIdsJSON.length(); j++) {
                 studentIDs.add(UUID.fromString(studentIdsJSON.getString(j)));
             }
-            advisors.add(new Advisor(uuid, username, firstName, lastName, password, studentIDs));
+            advisors.add(new Advisor(uuid, username, firstName, lastName, password));
         }
         return advisors;
     }
